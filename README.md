@@ -1,66 +1,68 @@
-# 안하은 포트폴리오
+# 안하은 | Frontend Developer Portfolio
 
-> 5년 경력 프론트엔드 개발자 포트폴리오 사이트
-
-## 🎯 프로젝트 소개
-
-금융권 5년 경력을 담은 개인 포트폴리오 사이트입니다.  
-레거시 시스템 분석부터 React 전환까지의 경험을 보여줍니다.
-
-### 주요 기능
-
-- 📊 숫자로 보는 경력 (5년, 9개 프로젝트, 3곳 금융권)
-- 💼 대표 프로젝트 소개 (하나증권, NH농협생명 등)
-- 🛠 기술 스택 및 경력 타임라인
-- 📱 완벽한 반응형 디자인
+5년간 금융 시스템 환경에서 실무를 경험한 프론트엔드 개발자의 포트폴리오 사이트입니다.
 
 ---
 
-## 🛠 기술 스택
+## 📌 About This Project
+
+본 프로젝트는 개인 포트폴리오 사이트로,  
+금융 도메인 기반 프론트엔드 개발 경험과 기술 역량을 정리하기 위해 제작되었습니다.
+
+실무 경험을 바탕으로 다음을 보여주는 데 목적이 있습니다:
+
+- 구조적인 화면 설계 역량
+- React 기반 UI 구성 능력
+- TypeScript를 활용한 안정적인 코드 작성
+- 금융 레거시 시스템 분석 경험
+
+---
+
+## 🛠 Tech Stack
 
 ### Frontend
 
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Icons**: Lucide React
+- **Next.js 14 (App Router)**
+- **TypeScript**
+- **Tailwind CSS**
+- **Lucide React**
 
-### Deploy
+### Deployment
 
-- **Deploy**: Vercel
-- **Version Control**: Git & GitHub
+- **Vercel**
+- **Git & GitHub**
 
 ---
 
-## 📁 프로젝트 구조
+## 📁 Project Structure
 
 ```
 portfolio/
 ├── src/
-│   ├── app/              # Next.js App Router
-│   ├── components/       # 재사용 컴포넌트
-│   ├── lib/              # 데이터, 유틸
-│   └── types/            # TypeScript 타입
-└── public/               # 정적 파일
+│   ├── app/          # Next.js App Router
+│   ├── components/   # Reusable UI Components
+│   ├── lib/          # Data & Utilities
+│   └── types/        # TypeScript Types
+└── public/           # Static Assets
 ```
 
 ---
 
-## 🚀 시작하기
+## 🚀 Getting Started
 
-### 설치
+### Install
 
 ```bash
 npm install
 ```
 
-### 개발 서버 실행
+### Run Dev Server
 
 ```bash
 npm run dev
 ```
 
-### 빌드
+### Build
 
 ```bash
 npm run build
@@ -68,31 +70,13 @@ npm run build
 
 ---
 
-## 📅 개발 일정
-
-### Week 1 (2.11 - 2.17)
-
-- [x] 프로젝트 세팅
-- [ ] Home 페이지
-- [ ] About 페이지
-- [ ] Projects 페이지
-- [ ] Contact 페이지
-
-### Week 2 (2.18 - 2.25)
-
-- [ ] 반응형
-- [ ] 최적화
-- [ ] 배포
-
----
-
-## 👨‍💻 개발자
+## 👨‍💻 Developer
 
 **안하은**  
-Frontend Developer · 5년 경력
+Frontend Developer (5 Years Experience)
 
-- 📧 Email: jse033101@gmail.com
-- 📄 Resume: [다운로드](./public/resume.pdf)
+📧 Email: jse033101@gmail.com  
+📍 Location: Seoul, Republic of Korea
 
 ---
 

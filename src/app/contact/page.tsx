@@ -2,34 +2,30 @@ import { Mail, Github, FileDown, MapPin } from "lucide-react";
 
 export default function Contact() {
   return (
-    <div className="py-20 px-4">
+    <div className="py-24 px-4 min-h-screen bg-white dark:bg-gray-950">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="mb-16 text-center">
+        <div className="mb-20 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white">
-            연락하기
+            Contact
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            함께 일하고 싶으시다면 언제든 연락주세요!
-            <br />
-            레거시 시스템 분석부터 React 전환까지,
-            <br />
-            5년간의 금융권 경험을 바탕으로 함께 성장하고 싶습니다.
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto leading-relaxed">
+            프론트엔드 포지션을 중심으로 새로운 기회를 찾고 있습니다. 금융
+            시스템 환경에서의 실무 경험을 바탕으로 구조 설계와 문제 해결에
+            집중합니다.
           </p>
         </div>
 
-        {/* Contact Info */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        {/* Contact Grid */}
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
           {/* Email */}
           <a
             href="mailto:jse033101@gmail.com"
-            className="p-8 border-2 border-gray-200 dark:border-gray-800 rounded-xl hover:border-blue-500 dark:hover:border-blue-400 transition-all hover:shadow-lg group dark:bg-gray-900"
+            className="p-8 border border-gray-200 dark:border-gray-800 rounded-2xl hover:shadow-lg transition group dark:bg-gray-900"
           >
-            <div className="flex items-center gap-4 mb-3">
-              <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded-lg group-hover:bg-blue-100 dark:group-hover:bg-blue-900 transition-colors">
-                <Mail size={24} className="text-blue-600 dark:text-blue-400" />
-              </div>
-              <h3 className="text-xl font-bold dark:text-white">이메일</h3>
+            <div className="flex items-center gap-4 mb-4">
+              <Mail className="text-blue-600 dark:text-blue-400" size={24} />
+              <h3 className="text-lg font-semibold dark:text-white">Email</h3>
             </div>
             <p className="text-gray-600 dark:text-gray-400">
               jse033101@gmail.com
@@ -41,19 +37,14 @@ export default function Contact() {
             href="https://github.com/heannnn"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-8 border-2 border-gray-200 dark:border-gray-800 rounded-xl hover:border-blue-500 dark:hover:border-blue-400 transition-all hover:shadow-lg group dark:bg-gray-900"
+            className="p-8 border border-gray-200 dark:border-gray-800 rounded-2xl hover:shadow-lg transition group dark:bg-gray-900"
           >
-            <div className="flex items-center gap-4 mb-3">
-              <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg group-hover:bg-gray-100 dark:group-hover:bg-gray-700 transition-colors">
-                <Github
-                  size={24}
-                  className="text-gray-900 dark:text-gray-100"
-                />
-              </div>
-              <h3 className="text-xl font-bold dark:text-white">GitHub</h3>
+            <div className="flex items-center gap-4 mb-4">
+              <Github size={24} className="dark:text-white" />
+              <h3 className="text-lg font-semibold dark:text-white">GitHub</h3>
             </div>
             <p className="text-gray-600 dark:text-gray-400">
-              github.com/yourusername
+              github.com/heannnn
             </p>
           </a>
 
@@ -61,50 +52,49 @@ export default function Contact() {
           <a
             href="/resume.pdf"
             download
-            className="p-8 border-2 border-gray-200 dark:border-gray-800 rounded-xl hover:border-blue-500 dark:hover:border-blue-400 transition-all hover:shadow-lg group dark:bg-gray-900"
+            className="p-8 border border-gray-200 dark:border-gray-800 rounded-2xl hover:shadow-lg transition group dark:bg-gray-900"
           >
-            <div className="flex items-center gap-4 mb-3">
-              <div className="p-3 bg-green-50 dark:bg-green-950 rounded-lg group-hover:bg-green-100 dark:group-hover:bg-green-900 transition-colors">
-                <FileDown
-                  size={24}
-                  className="text-green-600 dark:text-green-400"
-                />
-              </div>
-              <h3 className="text-xl font-bold dark:text-white">이력서</h3>
+            <div className="flex items-center gap-4 mb-4">
+              <FileDown
+                size={24}
+                className="text-green-600 dark:text-green-400"
+              />
+              <h3 className="text-lg font-semibold dark:text-white">Resume</h3>
             </div>
             <p className="text-gray-600 dark:text-gray-400">PDF 다운로드</p>
           </a>
 
           {/* Location */}
-          <div className="p-8 border-2 border-gray-200 dark:border-gray-800 rounded-xl dark:bg-gray-900">
-            <div className="flex items-center gap-4 mb-3">
-              <div className="p-3 bg-purple-50 dark:bg-purple-950 rounded-lg">
-                <MapPin
-                  size={24}
-                  className="text-purple-600 dark:text-purple-400"
-                />
-              </div>
-              <h3 className="text-xl font-bold dark:text-white">위치</h3>
+          <div className="p-8 border border-gray-200 dark:border-gray-800 rounded-2xl dark:bg-gray-900">
+            <div className="flex items-center gap-4 mb-4">
+              <MapPin
+                size={24}
+                className="text-purple-600 dark:text-purple-400"
+              />
+              <h3 className="text-lg font-semibold dark:text-white">
+                Location
+              </h3>
             </div>
-            <p className="text-gray-600 dark:text-gray-400">서울, 대한민국</p>
+            <p className="text-gray-600 dark:text-gray-400">
+              Seoul, Republic of Korea
+            </p>
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center p-12 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950 dark:to-gray-950 rounded-2xl border border-gray-200 dark:border-gray-800">
-          <h2 className="text-2xl font-bold mb-4 dark:text-white">
-            프로젝트 문의 환영합니다
+        {/* Hiring CTA */}
+        <div className="text-center p-12 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
+          <h2 className="text-2xl font-semibold mb-4 dark:text-white">
+            인터뷰 제안을 기다리고 있습니다
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
-            금융권 프론트엔드 개발, 레거시 시스템 전환,
-            <br />
-            React 프로젝트에 관심 있으시다면 연락주세요.
+            프론트엔드 개발 포지션에 관심이 있다면 이메일로 연락 주시면 빠르게
+            회신드리겠습니다.
           </p>
           <a
             href="mailto:jse033101@gmail.com"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all text-lg font-medium"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:opacity-90 transition font-medium"
           >
-            <Mail size={20} />
+            <Mail size={18} />
             이메일 보내기
           </a>
         </div>

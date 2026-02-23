@@ -50,15 +50,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 숫자로 보는 경력 */}
       <section className="py-20 border-y border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-3 gap-8">
             {[
               { number: "5년", label: "경력" },
               { number: "9개", label: "프로젝트" },
-              { number: "3곳", label: "금융권" },
-              { number: "80개", label: "화면 분석" },
+              { number: "10개", label: "금융기관" },
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
@@ -73,43 +71,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 핵심 역량 */}
-      <section className="py-20 px-4">
+      {/* What I Build */}
+      <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            핵심 역량
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+            What I Build
           </h2>
+          <p className="text-gray-500 text-center mb-14">
+            금융 IT 환경에서 구조와 안정성을 고려한 프론트엔드 개발을
+            해왔습니다.
+          </p>
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                icon: "🔍",
-                title: "레거시 시스템 분석",
-                desc: "20년 운영된 윈도우 시스템 80개 화면 분석 및 웹 전환 방식 정리",
+                icon: "🏗️",
+                title: "레거시를 웹 구조로 전환",
+                desc: "20년 운영 시스템 분석 후 기능 단위 재정의 및 웹 전환 전략 수립",
               },
               {
-                icon: "⚛️",
-                title: "React 기반 웹 전환",
-                desc: "C# 클라이언트를 React로 전환하여 실서비스 오픈",
+                icon: "📊",
+                title: "복잡한 금융 도메인 구조화",
+                desc: "랩·신탁·대출 등 단계형 프로세스 설계 및 상태 흐름 관리",
               },
               {
-                icon: "💼",
-                title: "복잡한 금융 로직 구현",
-                desc: "랩·신탁·투자운용 등 7단계 대출 프로세스 구현",
+                icon: "🚀",
+                title: "실서비스 오픈 경험",
+                desc: "개발-운영 환경 차이 해결 및 빌드·배포 구조 정비",
               },
               {
-                icon: "👥",
-                title: "프론트엔드 리딩",
-                desc: "공통 모듈 설계, 개발 가이드 작성, 코드 리뷰",
+                icon: "🧩",
+                title: "공통 모듈 설계",
+                desc: "이미지 뷰어 · WebSocket 통신 모듈 표준화",
               },
             ].map((item, i) => (
               <div
                 key={i}
-                className="p-6 border border-gray-200 rounded-xl hover:border-blue-500 transition-all hover:shadow-lg"
+                className="p-7 border border-gray-200 rounded-2xl 
+           hover:border-blue-500 hover:shadow-xl 
+           hover:-translate-y-1 hover:bg-blue-50
+           transition-all duration-300 
+           bg-white"
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
+                <div className="text-3xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -117,9 +125,12 @@ export default function Home() {
       </section>
 
       {/* 대표 프로젝트 */}
-      <section id="projects" className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+      <section
+        id="projects"
+        className="py-20 px-4 bg-gray-50 dark:bg-gray-900/50"
+      >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center dark:text-white">
             대표 프로젝트
           </h2>
 
@@ -139,24 +150,11 @@ export default function Home() {
                 <p className="text-gray-600 dark:text-gray-400">
                   {projects[0].period}
                 </p>
-                <p className="text-lg leading-relaxed dark:text-gray-300">
-                  {projects[0].description}
-                </p>
 
-                {projects[0].highlights && (
-                  <div className="grid md:grid-cols-3 gap-4 pt-4">
-                    {projects[0].highlights.map((highlight, i) => (
-                      <div
-                        key={i}
-                        className="p-4 bg-blue-50 dark:bg-blue-950 rounded-lg"
-                      >
-                        <div className="font-semibold dark:text-white">
-                          {highlight}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                {/* 요약으로 변경 */}
+                <p className="text-lg leading-relaxed dark:text-gray-300">
+                  {projects[0].summary}
+                </p>
 
                 <div className="flex flex-wrap gap-2 pt-4">
                   {projects[0].tags.map((tag) => (
@@ -176,7 +174,7 @@ export default function Home() {
               {projects.slice(1, 3).map((project) => (
                 <div
                   key={project.id}
-                  className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all"
+                  className="p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <h3 className="text-xl font-bold dark:text-white">
@@ -191,18 +189,24 @@ export default function Home() {
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
                     {project.period}
                   </p>
-                  <p className="mb-4 dark:text-gray-300">
-                    {project.description}
-                  </p>
+
+                  {/* 요약으로 변경 */}
+                  <p className="mb-4 dark:text-gray-300">{project.summary}</p>
+
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
+                    {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-full text-sm"
+                        className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm dark:text-gray-300"
                       >
                         {tag}
                       </span>
                     ))}
+                    {project.tags.length > 3 && (
+                      <span className="px-3 py-1 text-sm text-gray-500 dark:text-gray-400">
+                        +{project.tags.length - 3}
+                      </span>
+                    )}
                   </div>
                 </div>
               ))}
@@ -212,7 +216,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 text-blue-600 hover:gap-3 transition-all font-medium"
+              className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:gap-3 transition-all font-medium"
             >
               전체 프로젝트 보기 (9개)
               <ArrowRight size={18} />
@@ -220,52 +224,62 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* 기술 스택 */}
-      <section className="py-20 px-4">
+      {/* Tech Stack */}
+      <section className="py-28 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            기술 스택
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
+            Tech & Experience
           </h2>
+          <p className="text-gray-500 text-center mb-16">
+            React 중심의 프론트엔드 개발자로, 금융 시스템 환경에서 실서비스를
+            경험했습니다.
+          </p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-bold text-lg mb-4 text-blue-600">Frontend</h3>
-              <div className="space-y-2">
-                {["React", "JavaScript (ES6+)", "TypeScript", "Next.js"].map(
-                  (skill) => (
-                    <div key={skill} className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span>{skill}</span>
-                    </div>
-                  ),
-                )}
-              </div>
+            {/* 1. Core */}
+            <div className="p-8 rounded-2xl border border-blue-100 shadow-sm hover:shadow-lg transition bg-blue-50/40 ">
+              <h3 className="text-lg font-semibold text-blue-600 mb-4">
+                Core Frontend
+              </h3>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li>• React 기반 SPA 구조 설계</li>
+                <li>• TypeScript 타입 설계 경험</li>
+                <li>• Next.js 환경 구성</li>
+                <li>• Git 기반 협업</li>
+              </ul>
+              <p className="text-xs text-gray-400 mt-6">
+                실서비스 오픈 및 운영 경험 보유
+              </p>
             </div>
 
-            <div>
-              <h3 className="font-bold text-lg mb-4 text-purple-600">
+            {/* 2. Integration */}
+            <div className="p-8 rounded-2xl border border-purple-100 shadow-sm hover:shadow-lg transition bg-purple-50/40">
+              <h3 className="text-lg font-semibold text-purple-600 mb-4">
                 Integration
               </h3>
-              <div className="space-y-2">
-                {["REST API", "WebSocket", "Android WebView"].map((skill) => (
-                  <div key={skill} className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                    <span>{skill}</span>
-                  </div>
-                ))}
-              </div>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li>• REST API 통신 설계</li>
+                <li>• WebSocket 기반 실시간 연동</li>
+                <li>• Android WebView 환경 대응</li>
+              </ul>
+              <p className="text-xs text-gray-400 mt-6">
+                웹-클라이언트 간 통신 구조 구현 경험
+              </p>
             </div>
 
-            <div>
-              <h3 className="font-bold text-lg mb-4 text-green-600">Tools</h3>
-              <div className="space-y-2">
-                {["Git", "SVN", "C# (Winform/WPF)"].map((skill) => (
-                  <div key={skill} className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>{skill}</span>
-                  </div>
-                ))}
-              </div>
+            {/* 3. Enterprise */}
+            <div className="p-8 rounded-2xl border border-green-100 shadow-sm hover:shadow-lg transition bg-green-50/40">
+              <h3 className="text-lg font-semibold text-green-600 mb-4">
+                Enterprise Experience
+              </h3>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li>• Exbuilder6 기반 화면 개발</li>
+                <li>• C# Winform/WPF 클라이언트 개발</li>
+                <li>• SVN 형상관리 경험</li>
+              </ul>
+              <p className="text-xs text-gray-400 mt-6">
+                금융 레거시 시스템 분석 및 전환 경험
+              </p>
             </div>
           </div>
         </div>

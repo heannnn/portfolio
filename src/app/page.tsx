@@ -1,4 +1,4 @@
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, FileDown, Mail } from "lucide-react";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 
@@ -9,26 +9,30 @@ export default function Home() {
       <section className="min-h-[90vh] flex items-center justify-center px-4">
         <div className="max-w-4xl w-full">
           <div className="space-y-6">
-            <div className="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
+            <div className="inline-block px-4 py-2 bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium">
               Frontend Developer · 5년 경력
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold">안하은</h1>
+            <h1 className="text-5xl md:text-7xl font-bold dark:text-white">
+              안하은
+            </h1>
 
-            <p className="text-xl md:text-2xl text-gray-600 max-w-2xl">
-              금융권에서{" "}
-              <span className="text-blue-600 font-semibold">
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl">
+              금융권에서
+              <span className="text-blue-600 dark:text-blue-400 font-semibold">
                 레거시 시스템을 분석
               </span>
               하고,
-              <span className="text-blue-600 font-semibold"> React로 전환</span>
+              <span className="text-blue-600 dark:text-blue-400 font-semibold">
+                React로 전환
+              </span>
               하는 개발자입니다.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
               <Link
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all"
               >
                 주요 프로젝트 보기
                 <ArrowRight size={18} />
@@ -36,7 +40,7 @@ export default function Home() {
 
               <a
                 href="mailto:jse033101@gmail.com"
-                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 rounded-lg hover:border-gray-900 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 dark:border-gray-700 rounded-lg hover:border-gray-900 dark:hover:border-gray-300 transition-all dark:text-gray-300"
               >
                 <Mail size={18} />
                 이메일 보내기
@@ -47,7 +51,7 @@ export default function Home() {
       </section>
 
       {/* 숫자로 보는 경력 */}
-      <section className="py-20 border-y border-gray-200">
+      <section className="py-20 border-y border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -57,10 +61,12 @@ export default function Home() {
               { number: "80개", label: "화면 분석" },
             ].map((stat, i) => (
               <div key={i} className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">
+                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-gray-600 dark:text-gray-400">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -111,7 +117,7 @@ export default function Home() {
       </section>
 
       {/* 대표 프로젝트 */}
-      <section id="projects" className="py-20 px-4 bg-gray-50">
+      <section id="projects" className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             대표 프로젝트
@@ -119,7 +125,7 @@ export default function Home() {
 
           <div className="space-y-8">
             {/* 하나증권 - 강조 */}
-            <div className="relative p-8 bg-white rounded-2xl border-2 border-blue-500 shadow-xl">
+            <div className="relative p-8 bg-white dark:bg-gray-800 rounded-2xl border-2 border-blue-500 shadow-xl">
               <div className="absolute top-4 right-4">
                 <span className="px-3 py-1 bg-blue-500 text-white text-xs rounded-full font-medium">
                   대표 프로젝트
@@ -127,17 +133,26 @@ export default function Home() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold">{projects[0].title}</h3>
-                <p className="text-gray-600">{projects[0].period}</p>
-                <p className="text-lg leading-relaxed">
+                <h3 className="text-2xl font-bold dark:text-white">
+                  {projects[0].title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {projects[0].period}
+                </p>
+                <p className="text-lg leading-relaxed dark:text-gray-300">
                   {projects[0].description}
                 </p>
 
                 {projects[0].highlights && (
                   <div className="grid md:grid-cols-3 gap-4 pt-4">
                     {projects[0].highlights.map((highlight, i) => (
-                      <div key={i} className="p-4 bg-blue-50 rounded-lg">
-                        <div className="font-semibold">{highlight}</div>
+                      <div
+                        key={i}
+                        className="p-4 bg-blue-50 dark:bg-blue-950 rounded-lg"
+                      >
+                        <div className="font-semibold dark:text-white">
+                          {highlight}
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -147,7 +162,7 @@ export default function Home() {
                   {projects[0].tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-gray-100 rounded-full text-sm"
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm dark:text-gray-300"
                     >
                       {tag}
                     </span>
@@ -161,23 +176,29 @@ export default function Home() {
               {projects.slice(1, 3).map((project) => (
                 <div
                   key={project.id}
-                  className="p-6 bg-white rounded-xl border border-gray-200 hover:border-blue-500 transition-all"
+                  className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all"
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-xl font-bold">{project.title}</h3>
+                    <h3 className="text-xl font-bold dark:text-white">
+                      {project.title}
+                    </h3>
                     {project.badge && (
-                      <span className="px-3 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">
+                      <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs rounded-full font-medium">
                         {project.badge}
                       </span>
                     )}
                   </div>
-                  <p className="text-gray-600 text-sm mb-3">{project.period}</p>
-                  <p className="mb-4">{project.description}</p>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                    {project.period}
+                  </p>
+                  <p className="mb-4 dark:text-gray-300">
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-gray-100 rounded-full text-sm"
+                        className="px-3 py-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-full text-sm"
                       >
                         {tag}
                       </span>
@@ -196,6 +217,87 @@ export default function Home() {
               전체 프로젝트 보기 (9개)
               <ArrowRight size={18} />
             </Link>
+          </div>
+        </div>
+      </section>
+      {/* 기술 스택 */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            기술 스택
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="font-bold text-lg mb-4 text-blue-600">Frontend</h3>
+              <div className="space-y-2">
+                {["React", "JavaScript (ES6+)", "TypeScript", "Next.js"].map(
+                  (skill) => (
+                    <div key={skill} className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <span>{skill}</span>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4 text-purple-600">
+                Integration
+              </h3>
+              <div className="space-y-2">
+                {["REST API", "WebSocket", "Android WebView"].map((skill) => (
+                  <div key={skill} className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span>{skill}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4 text-green-600">Tools</h3>
+              <div className="space-y-2">
+                {["Git", "SVN", "C# (Winform/WPF)"].map((skill) => (
+                  <div key={skill} className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span>{skill}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            함께 일하고 싶으신가요?
+          </h2>
+          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            레거시 시스템 분석부터 React 전환까지,
+            <br />
+            5년간의 금융권 경험을 바탕으로 함께 성장하고 싶습니다.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href="mailto:jse033101@gmail.com"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all text-lg font-medium"
+            >
+              <Mail size={20} />
+              이메일 보내기
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-gray-900 rounded-lg hover:bg-gray-50 transition-all text-lg font-medium"
+            >
+              <FileDown size={20} />
+              이력서 다운로드
+            </a>
           </div>
         </div>
       </section>

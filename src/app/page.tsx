@@ -17,16 +17,16 @@ export default function Home() {
               안하은
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl">
-              금융권에서
-              <span className="text-blue-600 dark:text-blue-400 font-semibold">
-                레거시 시스템을 분석
-              </span>
-              하고,
-              <span className="text-blue-600 dark:text-blue-400 font-semibold">
-                React로 전환
-              </span>
-              하는 개발자입니다.
+            <p className="text-2xl md:text-3xl text-gray-800 leading-snug max-w-3xl mt-6 font-medium">
+              금융 레거시를 구조화하고{" "}
+              <span className="text-blue-600">
+                React로 전환해 실서비스까지 연결하는
+              </span>{" "}
+              프론트엔드 개발자입니다.
+            </p>
+
+            <p className="text-gray-500 mt-4">
+              레거시 분석부터 React 전환, 실서비스 운영까지 경험했습니다.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -111,7 +111,7 @@ export default function Home() {
            hover:border-blue-500 hover:shadow-xl 
            hover:-translate-y-1 hover:bg-blue-50
            transition-all duration-300 
-           bg-white"
+           bg-white dark:bg-gray-800"
               >
                 <div className="text-3xl mb-4">{item.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
@@ -136,7 +136,7 @@ export default function Home() {
 
           <div className="space-y-8">
             {/* 하나증권 - 강조 */}
-            <div className="relative p-8 bg-white dark:bg-gray-800 rounded-2xl border-2 border-blue-500 shadow-xl">
+            <div className="relative p-8 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 shadow-md hover:shadow-xl">
               <div className="absolute top-4 right-4">
                 <span className="px-3 py-1 bg-blue-500 text-white text-xs rounded-full font-medium">
                   대표 프로젝트
@@ -225,7 +225,7 @@ export default function Home() {
         </div>
       </section>
       {/* Tech Stack */}
-      <section className="py-28 px-4 bg-white">
+      <section className="py-28 px-4 bg-white dark:bg-gray-800">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
             Tech & Experience
@@ -237,7 +237,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* 1. Core */}
-            <div className="p-8 rounded-2xl border border-blue-100 shadow-sm hover:shadow-lg transition bg-blue-50/40 ">
+            <div className="p-8 rounded-2xl border border-blue-100 shadow-sm hover:shadow-lg transition bg-blue-50/40 dark:bg-blue-950/40">
               <h3 className="text-lg font-semibold text-blue-600 mb-4">
                 Core Frontend
               </h3>

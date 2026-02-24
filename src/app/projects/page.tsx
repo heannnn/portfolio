@@ -5,38 +5,43 @@ import { projects } from "@/lib/projects";
 import ProjectModal from "@/components/ProjectModal";
 import { Project } from "@/types";
 
+type FilterType = "all" | "architecture" | "process" | "client";
+
+const FILTERS: { label: string; value: FilterType }[] = [
+  { label: "All", value: "all" },
+  { label: "Architecture", value: "architecture" },
+  { label: "Process Design", value: "process" },
+  { label: "Client / Legacy", value: "client" },
+];
+
 export default function Projects() {
-  const [filter, setFilter] = useState<"all" | "react" | "c#">("all");
+  const [filter, setFilter] = useState<FilterType>("all");
+
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = projects.filter((project) => {
     if (filter === "all") return true;
-    if (filter === "react") return project.tags.some((tag) => tag === "React");
-    if (filter === "c#") return project.tags.some((tag) => tag === "C#");
-    return true;
+    return project.category === filter;
   });
+
+  const keyProjects = filteredProjects.filter((p) => p.isKey);
+  const otherProjects = filteredProjects.filter((p) => !p.isKey);
 
   return (
     <>
-      <div className="py-20 px-4">
+      <div className="py-24 px-4 min-h-screen bg-white dark:bg-gray-950">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="mb-12 text-center">
+          <div className="mb-16 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
-              프로젝트
+              Projects
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
-              총 {projects.length}개의 프로젝트
-            </p>
+            <p className="text-gray-500">설계 중심의 주요 프로젝트 경험</p>
           </div>
 
           {/* Filter */}
-          <div className="flex justify-center gap-4 mb-12">
-            {[
-              { label: "All", value: "all" as const },
-              { label: "React", value: "react" as const },
-              { label: "C#", value: "c#" as const },
-            ].map((item) => (
+          <div className="flex justify-center gap-4 mb-16 flex-wrap">
+            {FILTERS.map((item) => (
               <button
                 key={item.value}
                 onClick={() => setFilter(item.value)}
@@ -51,70 +56,77 @@ export default function Projects() {
             ))}
           </div>
 
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {filteredProjects.map((project, i) => (
-              <div
-                key={project.id}
-                onClick={() => setSelectedProject(project)}
-                className={`p-6 rounded-xl border transition-all hover:shadow-lg cursor-pointer ${
-                  i === 0
-                    ? "bg-blue-50 dark:bg-blue-950 border-blue-500 border-2"
-                    : "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-400"
-                }`}
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold dark:text-white">
-                    {project.title}
-                  </h3>
-                  {project.badge && (
-                    <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs rounded-full font-medium">
-                      {project.badge}
-                    </span>
-                  )}
-                  {i === 0 && !project.badge && (
-                    <span className="px-3 py-1 bg-blue-600 text-white text-xs rounded-full font-medium">
-                      대표
-                    </span>
-                  )}
-                </div>
+          {/* 🔥 Key Projects */}
+          {keyProjects.length > 0 && (
+            <>
+              <h2 className="text-2xl font-bold mb-6 dark:text-white">
+                Key Projects
+              </h2>
 
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
-                  {project.period}
-                </p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
-                  {project.role}
-                </p>
+              <div className="grid md:grid-cols-2 gap-8 mb-20">
+                {keyProjects.map((project) => (
+                  <div
+                    key={project.id}
+                    onClick={() => setSelectedProject(project)}
+                    className="p-8 rounded-2xl border-2 border-blue-500 bg-blue-50 dark:bg-blue-950 hover:shadow-xl cursor-pointer transition-all"
+                  >
+                    <div className="mb-3 flex justify-between">
+                      <h3 className="text-xl font-bold dark:text-white">
+                        {project.title}
+                      </h3>
+                      <span className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full">
+                        Key
+                      </span>
+                    </div>
 
-                {/* 요약만 표시 */}
-                <p className="mb-4 dark:text-gray-300">{project.summary}</p>
+                    <p className="text-sm text-gray-500 mb-2">
+                      {project.period} · {project.role}
+                    </p>
 
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.slice(0, 4).map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm dark:text-gray-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                  {project.tags.length > 4 && (
-                    <span className="px-3 py-1 text-sm text-gray-500 dark:text-gray-400">
-                      +{project.tags.length - 4}
-                    </span>
-                  )}
-                </div>
+                    <p className="dark:text-gray-300 mb-4">{project.summary}</p>
 
-                <div className="mt-4 text-sm text-blue-600 dark:text-blue-400 font-medium">
-                  자세히 보기 →
-                </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      {project.cardImpact}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
+
+          {/* Other Projects */}
+          {otherProjects.length > 0 && (
+            <>
+              <h2 className="text-2xl font-bold mb-6 dark:text-white">
+                Additional Experience
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {otherProjects.map((project) => (
+                  <div
+                    key={project.id}
+                    onClick={() => setSelectedProject(project)}
+                    className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-blue-500 hover:shadow-lg cursor-pointer transition-all"
+                  >
+                    <h3 className="font-semibold mb-2 dark:text-white">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-sm text-gray-500 mb-2">
+                      {project.period}
+                    </p>
+
+                    <p className="text-sm dark:text-gray-300">
+                      {project.summary}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
 
-      {/* 모달 */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}

@@ -1,4 +1,5 @@
-import { Mail, Github } from "lucide-react";
+import { Mail, Github, Code2 } from "lucide-react";
+import { CONTACT } from "@/lib/config";
 
 export default function Footer() {
   return (
@@ -11,20 +12,29 @@ export default function Footer() {
 
           <div className="flex gap-4">
             <a
-              href="mailto:jse033101@gmail.com"
+              href={CONTACT.emailUrl}
               className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors dark:text-gray-400"
               aria-label="Email"
             >
               <Mail size={20} />
             </a>
             <a
-              href="https://github.com/heannnn"
+              href={CONTACT.github}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors dark:text-gray-400"
               aria-label="GitHub"
             >
               <Github size={20} />
+            </a>
+            <a
+              href={CONTACT.portfolioRepo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors dark:text-gray-400"
+              aria-label="Portfolio Source"
+            >
+              <Code2 size={20} />
             </a>
           </div>
         </div>

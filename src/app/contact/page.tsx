@@ -1,4 +1,5 @@
 import { Mail, Github, FileDown, MapPin } from "lucide-react";
+import { CONTACT } from "@/lib/config";
 
 export default function Contact() {
   return (
@@ -20,7 +21,7 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-6 mb-16">
           {/* Email */}
           <a
-            href="https://mail.google.com/mail/?view=cm&to=jse033101@gmail.com"
+            href={CONTACT.emailUrl}
             className="p-8 border border-gray-200 dark:border-gray-800 rounded-2xl hover:shadow-lg transition group dark:bg-gray-900"
           >
             <div className="flex items-center gap-4 mb-4">
@@ -28,13 +29,13 @@ export default function Contact() {
               <h3 className="text-lg font-semibold dark:text-white">Email</h3>
             </div>
             <p className="text-gray-600 dark:text-gray-400">
-              jse033101@gmail.com
+              {CONTACT.email}
             </p>
           </a>
 
           {/* GitHub */}
           <a
-            href="https://github.com/heannnn"
+            href={CONTACT.github}
             target="_blank"
             rel="noopener noreferrer"
             className="p-8 border border-gray-200 dark:border-gray-800 rounded-2xl hover:shadow-lg transition group dark:bg-gray-900"
@@ -44,13 +45,16 @@ export default function Contact() {
               <h3 className="text-lg font-semibold dark:text-white">GitHub</h3>
             </div>
             <p className="text-gray-600 dark:text-gray-400">
-              github.com/heannnn
+              {CONTACT.githubDisplay}
+            </p>
+            <p className="text-sm text-blue-500 dark:text-blue-400 mt-2">
+              Portfolio source available →
             </p>
           </a>
 
           {/* Resume */}
           <a
-            href="/resume.pdf"
+            href={CONTACT.resume}
             download
             className="p-8 border border-gray-200 dark:border-gray-800 rounded-2xl hover:shadow-lg transition group dark:bg-gray-900"
           >
@@ -92,7 +96,7 @@ export default function Contact() {
             회신드리겠습니다.
           </p>
           <a
-            href="https://mail.google.com/mail/?view=cm&to=jse033101@gmail.com"
+            href={CONTACT.emailUrl}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:opacity-90 transition font-medium"
           >
             <Mail size={18} />

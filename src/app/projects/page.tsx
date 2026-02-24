@@ -3,9 +3,7 @@
 import { useState } from "react";
 import { projects } from "@/lib/projects";
 import ProjectModal from "@/components/ProjectModal";
-import { Project } from "@/types";
-
-type FilterType = "all" | "architecture" | "process" | "client";
+import { Project, FilterType } from "@/types";
 
 const FILTERS: { label: string; value: FilterType }[] = [
   { label: "All", value: "all" },

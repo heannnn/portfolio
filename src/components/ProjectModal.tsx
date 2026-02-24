@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { X } from "lucide-react";
 import { Project } from "@/types";
 
@@ -9,6 +10,15 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+  useEffect(() => {
+    if (!project) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [project, onClose]);
+
   if (!project) return null;
 
   return (
@@ -49,19 +59,40 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <button
               onClick={onClose}
               className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              aria-label="닫기"
             >
-              <X size={24} />
+              <X size={24} className="dark:text-white" />
             </button>
           </div>
 
           {/* 내용 */}
-          <div className="p-6">
+          <div className="p-6 space-y-6">
             {/* 상세 내용 */}
-            <div className="mb-6">
+            <div>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
                 {project.description}
               </p>
             </div>
+
+            {/* 주요 성과 */}
+            {project.impact && project.impact.length > 0 && (
+              <div>
+                <h3 className="font-bold text-lg mb-3 dark:text-white">
+                  주요 성과
+                </h3>
+                <ul className="space-y-2">
+                  {project.impact.map((item, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-2 text-gray-700 dark:text-gray-300"
+                    >
+                      <span className="text-blue-500 mt-1">✔</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* 기술 스택 */}
             <div>

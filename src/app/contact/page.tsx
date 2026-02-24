@@ -84,7 +84,8 @@ export default function Contact() {
         {/* Hiring CTA */}
         <div className="text-center p-12 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
           <h2 className="text-2xl font-semibold mb-4 dark:text-white">
-            인터뷰 제안을 기다리고 있습니다
+            금융 시스템 기반 프론트엔드 포지션을 중심으로 새로운 기회를 찾고
+            있습니다.
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             프론트엔드 개발 포지션에 관심이 있다면 이메일로 연락 주시면 빠르게

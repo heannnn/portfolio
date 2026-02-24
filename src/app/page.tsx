@@ -71,11 +71,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What I Build */}
+      {/* 핵심 설계 역량 */}
       <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            What I Build
+            핵심 설계 역량
           </h2>
           <p className="text-gray-500 text-center mb-14">
             금융 IT 환경에서 구조와 안정성을 고려한 프론트엔드 개발을

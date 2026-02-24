@@ -20,7 +20,7 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-6 mb-16">
           {/* Email */}
           <a
-            href="mailto:jse033101@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&to=jse033101@gmail.com"
             className="p-8 border border-gray-200 dark:border-gray-800 rounded-2xl hover:shadow-lg transition group dark:bg-gray-900"
           >
             <div className="flex items-center gap-4 mb-4">
@@ -91,7 +91,7 @@ export default function Contact() {
             회신드리겠습니다.
           </p>
           <a
-            href="mailto:jse033101@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&to=jse033101@gmail.com"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:opacity-90 transition font-medium"
           >
             <Mail size={18} />

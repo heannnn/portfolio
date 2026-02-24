@@ -39,7 +39,7 @@ export default function Home() {
               </Link>
 
               <a
-                href="mailto:jse033101@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&to=jse033101@gmail.com"
                 className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 dark:border-gray-700 rounded-lg hover:border-gray-900 dark:hover:border-gray-300 transition-all dark:text-gray-300"
               >
                 <Mail size={18} />
@@ -298,7 +298,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
-              href="mailto:jse033101@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&to=jse033101@gmail.com"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all text-lg font-medium"
             >
               <Mail size={20} />

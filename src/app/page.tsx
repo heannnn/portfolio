@@ -1,6 +1,7 @@
 import { ArrowRight, FileDown, Mail } from "lucide-react";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
+import { CONTACT } from "@/lib/config";
 
 export default function Home() {
   return (
@@ -17,15 +18,15 @@ export default function Home() {
               안하은
             </h1>
 
-            <p className="text-2xl md:text-3xl text-gray-800 leading-snug max-w-3xl mt-6 font-medium">
+            <p className="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 leading-snug max-w-3xl mt-6 font-medium">
               금융 레거시를 구조화하고{" "}
-              <span className="text-blue-600">
+              <span className="text-blue-600 dark:text-blue-400">
                 React로 전환해 실서비스까지 연결하는
               </span>{" "}
               프론트엔드 개발자입니다.
             </p>
 
-            <p className="text-gray-500 mt-4">
+            <p className="text-gray-500 dark:text-gray-400 mt-4">
               레거시 분석부터 React 전환, 실서비스 운영까지 경험했습니다.
             </p>
 
@@ -39,7 +40,7 @@ export default function Home() {
               </Link>
 
               <a
-                href="https://mail.google.com/mail/?view=cm&to=jse033101@gmail.com"
+                href={CONTACT.emailUrl}
                 className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 dark:border-gray-700 rounded-lg hover:border-gray-900 dark:hover:border-gray-300 transition-all dark:text-gray-300"
               >
                 <Mail size={18} />
@@ -107,15 +108,15 @@ export default function Home() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="p-7 border border-gray-200 rounded-2xl 
-           hover:border-blue-500 hover:shadow-xl 
-           hover:-translate-y-1 hover:bg-blue-50
-           transition-all duration-300 
+                className="p-7 border border-gray-200 dark:border-gray-700 rounded-2xl
+           hover:border-blue-500 hover:shadow-xl
+           hover:-translate-y-1 hover:bg-blue-50 dark:hover:bg-blue-950
+           transition-all duration-300
            bg-white dark:bg-gray-800"
               >
                 <div className="text-3xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <h3 className="text-xl font-semibold mb-2 dark:text-white">{item.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -237,11 +238,11 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* 1. Core */}
-            <div className="p-8 rounded-2xl border border-blue-100 shadow-sm hover:shadow-lg transition bg-blue-50/40 dark:bg-blue-950/40">
-              <h3 className="text-lg font-semibold text-blue-600 mb-4">
+            <div className="p-8 rounded-2xl border border-blue-100 dark:border-blue-900 shadow-sm hover:shadow-lg transition bg-blue-50/40 dark:bg-blue-950/40">
+              <h3 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">
                 Core Frontend
               </h3>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                 <li>• React 기반 SPA 구조 설계</li>
                 <li>• TypeScript 타입 설계 경험</li>
                 <li>• Next.js 환경 구성</li>
@@ -253,11 +254,11 @@ export default function Home() {
             </div>
 
             {/* 2. Integration */}
-            <div className="p-8 rounded-2xl border border-purple-100 shadow-sm hover:shadow-lg transition bg-purple-50/40">
-              <h3 className="text-lg font-semibold text-purple-600 mb-4">
+            <div className="p-8 rounded-2xl border border-purple-100 dark:border-purple-900 shadow-sm hover:shadow-lg transition bg-purple-50/40 dark:bg-purple-950/40">
+              <h3 className="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-4">
                 Integration
               </h3>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                 <li>• REST API 통신 설계</li>
                 <li>• WebSocket 기반 실시간 연동</li>
                 <li>• Android WebView 환경 대응</li>
@@ -268,11 +269,11 @@ export default function Home() {
             </div>
 
             {/* 3. Enterprise */}
-            <div className="p-8 rounded-2xl border border-green-100 shadow-sm hover:shadow-lg transition bg-green-50/40">
-              <h3 className="text-lg font-semibold text-green-600 mb-4">
+            <div className="p-8 rounded-2xl border border-green-100 dark:border-green-900 shadow-sm hover:shadow-lg transition bg-green-50/40 dark:bg-green-950/40">
+              <h3 className="text-lg font-semibold text-green-600 dark:text-green-400 mb-4">
                 Enterprise Experience
               </h3>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                 <li>• Exbuilder6 기반 화면 개발</li>
                 <li>• C# Winform/WPF 클라이언트 개발</li>
                 <li>• SVN 형상관리 경험</li>
@@ -286,28 +287,28 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">
             함께 일하고 싶으신가요?
           </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
             레거시 시스템 분석부터 React 전환까지,
             <br />
             5년간의 금융권 경험을 바탕으로 함께 성장하고 싶습니다.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
-              href="https://mail.google.com/mail/?view=cm&to=jse033101@gmail.com"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all text-lg font-medium"
+              href={CONTACT.emailUrl}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-all text-lg font-medium"
             >
               <Mail size={20} />
               이메일 보내기
             </a>
             <a
-              href="/resume.pdf"
+              href={CONTACT.resume}
               download
-              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-gray-900 rounded-lg hover:bg-gray-50 transition-all text-lg font-medium"
+              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-gray-900 dark:border-gray-300 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all text-lg font-medium"
             >
               <FileDown size={20} />
               이력서 다운로드

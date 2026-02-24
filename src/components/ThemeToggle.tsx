@@ -12,11 +12,8 @@ export default function ThemeToggle() {
       className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
       aria-label="Toggle theme"
     >
-      {resolvedTheme === "dark" ? (
-        <Sun size={20} className="text-yellow-500" />
-      ) : (
-        <Moon size={20} className="text-gray-700" />
-      )}
+      <Sun size={20} className="text-yellow-500 hidden dark:block" />
+      <Moon size={20} className="text-gray-700 dark:hidden" />
     </button>
   );
 }

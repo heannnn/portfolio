@@ -1,4 +1,6 @@
 import { FileDown } from "lucide-react";
+import { CONTACT } from "@/lib/config";
+import { TECH_STACKS } from "@/lib/data/tech-stack";
 
 export default function About() {
   return (
@@ -128,50 +130,28 @@ export default function About() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Core */}
-            <div className="p-8 rounded-2xl border border-blue-100 shadow-sm hover:shadow-lg transition bg-blue-50/40 dark:bg-blue-950/40 dark:border-blue-900">
-              <h3 className="font-semibold text-lg mb-4 text-blue-600 dark:text-blue-400">
-                Core Frontend
-              </h3>
-              <ul className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
-                <li>• React 기반 화면 구조 설계 및 상태 흐름 관리</li>
-                <li>• TypeScript 도입 및 타입 안정성 고려 설계</li>
-                <li>• Next.js 환경 구성 및 프로젝트 구조 설계 경험</li>
-                <li>• Git 기반 협업 및 브랜치 전략 운영</li>
-              </ul>
-            </div>
-
-            {/* Integration */}
-            <div className="p-8 rounded-2xl border border-purple-100 shadow-sm hover:shadow-lg transition bg-purple-50/40 dark:bg-purple-950/40 dark:border-purple-900">
-              <h3 className="font-semibold text-lg mb-4 text-purple-600 dark:text-purple-400">
-                Integration
-              </h3>
-              <ul className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
-                <li>• REST API 스펙 분석 기반 UI 흐름 설계</li>
-                <li>• WebSocket 기반 실시간 데이터 처리 경험</li>
-                <li>• Android WebView 환경 대응 경험</li>
-              </ul>
-            </div>
-
-            {/* Enterprise */}
-            <div className="p-8 rounded-2xl border border-green-100 shadow-sm hover:shadow-lg transition bg-green-50/40 dark:bg-green-950/40 dark:border-green-900">
-              <h3 className="font-semibold text-lg mb-4 text-green-600 dark:text-green-400">
-                Enterprise Experience
-              </h3>
-              <ul className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
-                <li>• Exbuilder6 기반 금융 화면 개발 경험</li>
-                <li>• C# Winform/WPF 클라이언트 개발 경험</li>
-                <li>• 금융 도메인(본인인증, 심사, 가입 프로세스) 이해</li>
-                <li>• 장기 운영 레거시 시스템 구조 분석 경험</li>
-              </ul>
-            </div>
+            {TECH_STACKS.map((stack) => (
+              <div
+                key={stack.title}
+                className={`p-8 rounded-2xl border shadow-sm hover:shadow-lg transition ${stack.cardClass}`}
+              >
+                <h3 className={`font-semibold text-lg mb-4 ${stack.titleClass}`}>
+                  {stack.title}
+                </h3>
+                <ul className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+                  {stack.items.map((item, i) => (
+                    <li key={i}>• {item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* 이력서 다운로드 */}
         <section>
           <a
-            href="/resume.pdf"
+            href={CONTACT.resume}
             download
             className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all text-lg font-medium"
           >

@@ -51,7 +51,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <p className="text-fg-muted">
                 {project.period}
               </p>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              <p className="text-sm text-fg-muted mt-1">
                 {project.role}
               </p>
             </div>

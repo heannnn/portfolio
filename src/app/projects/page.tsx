@@ -67,11 +67,11 @@ export default function Projects() {
                     onClick={() => setSelectedProject(project)}
                     className="p-8 rounded-2xl border-2 border-blue-500 bg-blue-50 dark:bg-blue-950 hover:shadow-xl cursor-pointer transition-all"
                   >
-                    <div className="mb-3 flex justify-between">
+                    <div className="mb-3 flex justify-between items-start gap-3">
                       <h3 className="text-xl font-bold text-fg">
                         {project.title}
                       </h3>
-                      <span className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full">
+                      <span className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full shrink-0">
                         Key
                       </span>
                     </div>

@@ -6,9 +6,7 @@ export default function Footer() {
     <footer className="border-t border-line mt-20 bg-base">
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-fg-muted">
-            © 2025 안하은. All rights reserved.
-          </p>
+          <p className="text-fg-muted">© 2026 안하은. All rights reserved.</p>
 
           <div className="flex gap-4">
             <a

@@ -97,7 +97,7 @@ export default function About() {
                 description: "통합단말-전자문서 뷰어 연동",
               },
             ].map((item, i) => (
-              <div key={i} className="flex gap-8">
+              <div key={i} className="flex gap-4 sm:gap-8">
                 <div className="w-20 shrink-0">
                   <div className="font-bold text-blue-600 dark:text-blue-400">
                     {item.year}

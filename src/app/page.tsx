@@ -53,7 +53,7 @@ export default function Home() {
 
       <section className="py-20 border-y border-line">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 gap-4 md:gap-8">
             {[
               { number: "5년", label: "경력" },
               { number: "9개", label: "프로젝트" },
@@ -145,7 +145,7 @@ export default function Home() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-fg">
+                <h3 className="text-2xl font-bold text-fg pr-24">
                   {projects[0].title}
                 </h3>
                 <p className="text-fg-muted">

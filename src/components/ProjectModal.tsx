@@ -32,14 +32,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       {/* 모달 */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         <div
-          className="bg-white dark:bg-gray-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+          className="bg-surface rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
           {/* 헤더 */}
-          <div className="sticky top-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 p-6 flex justify-between items-start">
+          <div className="sticky top-0 bg-surface border-b border-line p-6 flex justify-between items-start">
             <div className="flex-1 pr-4">
               <div className="flex items-center gap-3 mb-2">
-                <h2 className="text-2xl font-bold dark:text-white">
+                <h2 className="text-2xl font-bold text-fg">
                   {project.title}
                 </h2>
                 {project.badge && (
@@ -48,7 +48,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   </span>
                 )}
               </div>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-fg-muted">
                 {project.period}
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -58,10 +58,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             <button
               onClick={onClose}
-              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
               aria-label="닫기"
             >
-              <X size={24} className="dark:text-white" />
+              <X size={24} className="text-fg" />
             </button>
           </div>
 
@@ -69,7 +69,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="p-6 space-y-6">
             {/* 상세 내용 */}
             <div>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+              <p className="text-fg-body leading-relaxed whitespace-pre-line">
                 {project.description}
               </p>
             </div>
@@ -77,14 +77,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             {/* 주요 성과 */}
             {project.impact && project.impact.length > 0 && (
               <div>
-                <h3 className="font-bold text-lg mb-3 dark:text-white">
+                <h3 className="font-bold text-lg mb-3 text-fg">
                   주요 성과
                 </h3>
                 <ul className="space-y-2">
                   {project.impact.map((item, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-2 text-gray-700 dark:text-gray-300"
+                      className="flex items-start gap-2 text-fg-body"
                     >
                       <span className="text-blue-500 mt-1">✔</span>
                       <span>{item}</span>
@@ -96,14 +96,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             {/* 기술 스택 */}
             <div>
-              <h3 className="font-bold text-lg mb-3 dark:text-white">
+              <h3 className="font-bold text-lg mb-3 text-fg">
                 기술 스택
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm dark:text-gray-300"
+                    className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm text-fg-body"
                   >
                     {tag}
                   </span>

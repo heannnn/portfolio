@@ -14,11 +14,11 @@ export default function Home() {
               Frontend Developer · 5년 경력
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold dark:text-white">
+            <h1 className="text-5xl md:text-7xl font-bold text-fg">
               안하은
             </h1>
 
-            <p className="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 leading-snug max-w-3xl mt-6 font-medium">
+            <p className="text-2xl md:text-3xl text-fg leading-snug max-w-3xl mt-6 font-medium">
               금융 레거시를 구조화하고{" "}
               <span className="text-blue-600 dark:text-blue-400">
                 React로 전환해 실서비스까지 연결하는
@@ -26,7 +26,7 @@ export default function Home() {
               프론트엔드 개발자입니다.
             </p>
 
-            <p className="text-gray-500 dark:text-gray-400 mt-4">
+            <p className="text-fg-muted mt-4">
               레거시 분석부터 React 전환, 실서비스 운영까지 경험했습니다.
             </p>
 
@@ -51,7 +51,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 border-y border-gray-200 dark:border-gray-800">
+      <section className="py-20 border-y border-line">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-3 gap-8">
             {[
@@ -63,7 +63,7 @@ export default function Home() {
                 <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-600 dark:text-gray-400">
+                <div className="text-fg-muted">
                   {stat.label}
                 </div>
               </div>
@@ -75,10 +75,10 @@ export default function Home() {
       {/* 핵심 설계 역량 */}
       <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-fg">
             핵심 설계 역량
           </h2>
-          <p className="text-gray-500 text-center mb-14">
+          <p className="text-fg-muted text-center mb-14">
             금융 IT 환경에서 구조와 안정성을 고려한 프론트엔드 개발을
             해왔습니다.
           </p>
@@ -108,15 +108,15 @@ export default function Home() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="p-7 border border-gray-200 dark:border-gray-700 rounded-2xl
+                className="p-7 border border-line rounded-2xl
            hover:border-blue-500 hover:shadow-xl
            hover:-translate-y-1 hover:bg-blue-50 dark:hover:bg-blue-950
            transition-all duration-300
-           bg-white dark:bg-gray-800"
+           bg-surface"
               >
                 <div className="text-3xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 dark:text-white">{item.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                <h3 className="text-xl font-semibold mb-2 text-fg">{item.title}</h3>
+                <p className="text-fg-muted text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -131,13 +131,13 @@ export default function Home() {
         className="py-20 px-4 bg-gray-50 dark:bg-gray-900/50"
       >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-fg">
             대표 프로젝트
           </h2>
 
           <div className="space-y-8">
             {/* 하나증권 - 강조 */}
-            <div className="relative p-8 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 shadow-md hover:shadow-xl">
+            <div className="relative p-8 bg-surface rounded-2xl border border-line shadow-md hover:shadow-xl">
               <div className="absolute top-4 right-4">
                 <span className="px-3 py-1 bg-blue-500 text-white text-xs rounded-full font-medium">
                   대표 프로젝트
@@ -145,15 +145,14 @@ export default function Home() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold dark:text-white">
+                <h3 className="text-2xl font-bold text-fg">
                   {projects[0].title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-fg-muted">
                   {projects[0].period}
                 </p>
 
-                {/* 요약으로 변경 */}
-                <p className="text-lg leading-relaxed dark:text-gray-300">
+                <p className="text-lg leading-relaxed text-fg-body">
                   {projects[0].summary}
                 </p>
 
@@ -161,7 +160,7 @@ export default function Home() {
                   {projects[0].tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm dark:text-gray-300"
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm text-fg-body"
                     >
                       {tag}
                     </span>
@@ -175,10 +174,10 @@ export default function Home() {
               {projects.slice(1, 3).map((project) => (
                 <div
                   key={project.id}
-                  className="p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all"
+                  className="p-6 bg-surface rounded-xl border border-line hover:border-blue-500 dark:hover:border-blue-400 transition-all"
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-xl font-bold dark:text-white">
+                    <h3 className="text-xl font-bold text-fg">
                       {project.title}
                     </h3>
                     {project.badge && (
@@ -187,24 +186,23 @@ export default function Home() {
                       </span>
                     )}
                   </div>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+                  <p className="text-fg-muted text-sm mb-3">
                     {project.period}
                   </p>
 
-                  {/* 요약으로 변경 */}
-                  <p className="mb-4 dark:text-gray-300">{project.summary}</p>
+                  <p className="mb-4 text-fg-body">{project.summary}</p>
 
                   <div className="flex flex-wrap gap-2">
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm dark:text-gray-300"
+                        className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm text-fg-body"
                       >
                         {tag}
                       </span>
                     ))}
                     {project.tags.length > 3 && (
-                      <span className="px-3 py-1 text-sm text-gray-500 dark:text-gray-400">
+                      <span className="px-3 py-1 text-sm text-fg-muted">
                         +{project.tags.length - 3}
                       </span>
                     )}
@@ -225,13 +223,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* Tech Stack */}
-      <section className="py-28 px-4 bg-white dark:bg-gray-800">
+      <section className="py-28 px-4 bg-surface">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-fg">
             Tech & Experience
           </h2>
-          <p className="text-gray-500 text-center mb-16">
+          <p className="text-fg-muted text-center mb-16">
             React 중심의 프론트엔드 개발자로, 금융 시스템 환경에서 실서비스를
             경험했습니다.
           </p>
@@ -242,7 +241,7 @@ export default function Home() {
               <h3 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">
                 Core Frontend
               </h3>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+              <ul className="space-y-2 text-sm text-fg-body">
                 <li>• React 기반 SPA 구조 설계</li>
                 <li>• TypeScript 타입 설계 경험</li>
                 <li>• Next.js 환경 구성</li>
@@ -258,7 +257,7 @@ export default function Home() {
               <h3 className="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-4">
                 Integration
               </h3>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+              <ul className="space-y-2 text-sm text-fg-body">
                 <li>• REST API 통신 설계</li>
                 <li>• WebSocket 기반 실시간 연동</li>
                 <li>• Android WebView 환경 대응</li>
@@ -273,7 +272,7 @@ export default function Home() {
               <h3 className="text-lg font-semibold text-green-600 dark:text-green-400 mb-4">
                 Enterprise Experience
               </h3>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+              <ul className="space-y-2 text-sm text-fg-body">
                 <li>• Exbuilder6 기반 화면 개발</li>
                 <li>• C# Winform/WPF 클라이언트 개발</li>
                 <li>• SVN 형상관리 경험</li>
@@ -287,12 +286,12 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950">
+      <section className="py-20 px-4 bg-linear-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-fg">
             함께 일하고 싶으신가요?
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-fg-muted mb-8 max-w-2xl mx-auto">
             레거시 시스템 분석부터 React 전환까지,
             <br />
             5년간의 금융권 경험을 바탕으로 함께 성장하고 싶습니다.

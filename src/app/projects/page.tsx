@@ -14,7 +14,6 @@ const FILTERS: { label: string; value: FilterType }[] = [
 
 export default function Projects() {
   const [filter, setFilter] = useState<FilterType>("all");
-
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = projects.filter((project) => {
@@ -27,14 +26,14 @@ export default function Projects() {
 
   return (
     <>
-      <div className="py-24 px-4 min-h-screen bg-white dark:bg-gray-950">
+      <div className="py-24 px-4 min-h-screen bg-base">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="mb-16 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-fg">
               Projects
             </h1>
-            <p className="text-gray-500">설계 중심의 주요 프로젝트 경험</p>
+            <p className="text-fg-muted">설계 중심의 주요 프로젝트 경험</p>
           </div>
 
           {/* Filter */}
@@ -46,7 +45,7 @@ export default function Projects() {
                 className={`px-6 py-2 rounded-lg transition-all ${
                   filter === item.value
                     ? "bg-blue-600 text-white"
-                    : "bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-gray-300"
+                    : "bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-fg-muted"
                 }`}
               >
                 {item.label}
@@ -54,10 +53,10 @@ export default function Projects() {
             ))}
           </div>
 
-          {/* 🔥 Key Projects */}
+          {/* Key Projects */}
           {keyProjects.length > 0 && (
             <>
-              <h2 className="text-2xl font-bold mb-6 dark:text-white">
+              <h2 className="text-2xl font-bold mb-6 text-fg">
                 Key Projects
               </h2>
 
@@ -69,7 +68,7 @@ export default function Projects() {
                     className="p-8 rounded-2xl border-2 border-blue-500 bg-blue-50 dark:bg-blue-950 hover:shadow-xl cursor-pointer transition-all"
                   >
                     <div className="mb-3 flex justify-between">
-                      <h3 className="text-xl font-bold dark:text-white">
+                      <h3 className="text-xl font-bold text-fg">
                         {project.title}
                       </h3>
                       <span className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full">
@@ -77,13 +76,13 @@ export default function Projects() {
                       </span>
                     </div>
 
-                    <p className="text-sm text-gray-500 mb-2">
+                    <p className="text-sm text-fg-muted mb-2">
                       {project.period} · {project.role}
                     </p>
 
-                    <p className="dark:text-gray-300 mb-4">{project.summary}</p>
+                    <p className="text-fg-body mb-4">{project.summary}</p>
 
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-fg-muted">
                       {project.cardImpact}
                     </p>
                   </div>
@@ -95,7 +94,7 @@ export default function Projects() {
           {/* Other Projects */}
           {otherProjects.length > 0 && (
             <>
-              <h2 className="text-2xl font-bold mb-6 dark:text-white">
+              <h2 className="text-2xl font-bold mb-6 text-fg">
                 Additional Experience
               </h2>
 
@@ -104,17 +103,17 @@ export default function Projects() {
                   <div
                     key={project.id}
                     onClick={() => setSelectedProject(project)}
-                    className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-blue-500 hover:shadow-lg cursor-pointer transition-all"
+                    className="p-6 rounded-xl border border-line bg-surface hover:border-blue-500 hover:shadow-lg cursor-pointer transition-all"
                   >
-                    <h3 className="font-semibold mb-2 dark:text-white">
+                    <h3 className="font-semibold mb-2 text-fg">
                       {project.title}
                     </h3>
 
-                    <p className="text-sm text-gray-500 mb-2">
+                    <p className="text-sm text-fg-muted mb-2">
                       {project.period}
                     </p>
 
-                    <p className="text-sm dark:text-gray-300">
+                    <p className="text-sm text-fg-body">
                       {project.summary}
                     </p>
                   </div>

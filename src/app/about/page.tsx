@@ -4,30 +4,30 @@ import { TECH_STACKS } from "@/lib/data/tech-stack";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 py-24 px-4">
+    <div className="min-h-screen bg-base py-24 px-4">
       <div className="max-w-4xl mx-auto">
-        {/* Header - Home 스타일과 통일 */}
+        {/* Header */}
         <div className="mb-16">
           <div className="inline-block px-4 py-2 bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium mb-6">
             Frontend Developer · 5년 경력
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold dark:text-white mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold text-fg mb-4">
             안하은
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
+          <p className="text-fg-muted text-lg">
             금융 레거시를 구조화하고 React로 전환해 실서비스까지 연결해왔습니다.
           </p>
         </div>
 
         {/* 자기소개 */}
-        <section className="py-24 border-t border-gray-200 dark:border-gray-800">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
+        <section className="py-24 border-t border-line">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-fg">
             소개
           </h2>
-          <p className="text-gray-500 mb-10">
+          <p className="text-fg-muted mb-10">
             5년간의 금융권 프로젝트 경험을 바탕으로 합니다.
           </p>
-          <div className="space-y-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300 max-w-3xl">
+          <div className="space-y-6 text-lg leading-relaxed text-fg-body max-w-3xl">
             <p>
               5년간 금융권 시스템 개발 프로젝트를 경험하며, 현재는 프론트엔드
               개발을 중심으로 업무를 수행해왔습니다. 여러 금융기관 프로젝트를
@@ -59,11 +59,11 @@ export default function About() {
         </section>
 
         {/* 경력 타임라인 */}
-        <section className="py-24 border-t border-gray-200 dark:border-gray-800">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
+        <section className="py-24 border-t border-line">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-fg">
             경력
           </h2>
-          <p className="text-gray-500 mb-10">금융권 중심의 5년 개발 이력</p>
+          <p className="text-fg-muted mb-10">금융권 중심의 5년 개발 이력</p>
           <div className="space-y-8">
             {[
               {
@@ -98,20 +98,20 @@ export default function About() {
               },
             ].map((item, i) => (
               <div key={i} className="flex gap-8">
-                <div className="w-20 flex-shrink-0">
+                <div className="w-20 shrink-0">
                   <div className="font-bold text-blue-600 dark:text-blue-400">
                     {item.year}
                   </div>
                 </div>
-                <div className="flex-1 relative pb-12 border-l-2 border-gray-200 dark:border-gray-800 pl-10">
+                <div className="flex-1 relative pb-12 border-l-2 border-line pl-10">
                   <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full"></div>
-                  <h3 className="font-semibold text-xl mb-1 dark:text-white">
+                  <h3 className="font-semibold text-xl mb-1 text-fg">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                  <p className="text-sm text-fg-muted mb-2">
                     {item.role}
                   </p>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="text-fg-body">
                     {item.description}
                   </p>
                 </div>
@@ -122,10 +122,10 @@ export default function About() {
 
         {/* 기술 역량 */}
         <section className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-fg">
             Technical Experience
           </h2>
-          <p className="text-gray-500 mb-10">
+          <p className="text-fg-muted mb-10">
             실무 프로젝트에서 사용하고 경험한 기술 역량입니다.
           </p>
 
@@ -138,7 +138,7 @@ export default function About() {
                 <h3 className={`font-semibold text-lg mb-4 ${stack.titleClass}`}>
                   {stack.title}
                 </h3>
-                <ul className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+                <ul className="space-y-3 text-sm text-fg-body">
                   {stack.items.map((item, i) => (
                     <li key={i}>• {item}</li>
                   ))}

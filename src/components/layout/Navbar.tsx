@@ -16,7 +16,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-800">
+    <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-line">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -29,7 +29,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="hover:text-blue-500 transition-colors dark:text-gray-300 dark:hover:text-blue-400"
+                className="transition-colors text-fg-muted hover:text-blue-500 dark:hover:text-blue-400"
               >
                 {link.label}
               </Link>
@@ -42,7 +42,7 @@ export default function Navbar() {
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="dark:text-white"
+              className="text-fg"
             >
               {isOpen ? <X /> : <Menu />}
             </button>
@@ -56,7 +56,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-2 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
+                className="block py-2 text-fg-muted hover:text-blue-500 dark:hover:text-blue-400"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

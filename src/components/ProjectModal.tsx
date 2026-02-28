@@ -39,21 +39,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="sticky top-0 bg-surface border-b border-line p-6 flex justify-between items-start">
             <div className="flex-1 pr-4">
               <div className="flex items-center gap-3 mb-2">
-                <h2 className="text-2xl font-bold text-fg">
-                  {project.title}
-                </h2>
+                <h2 className="text-2xl font-bold text-fg">{project.title}</h2>
                 {project.badge && (
                   <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs rounded-full font-medium">
                     {project.badge}
                   </span>
                 )}
               </div>
-              <p className="text-fg-muted">
-                {project.period}
-              </p>
-              <p className="text-sm text-fg-muted mt-1">
-                {project.role}
-              </p>
+              <p className="text-fg-muted">{project.period}</p>
+              <p className="text-sm text-fg-muted mt-1">{project.role}</p>
             </div>
 
             <button
@@ -65,30 +59,26 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </button>
           </div>
 
-          {/* 내용 */}
-          <div className="p-6 space-y-6">
-            {/* 상세 내용 */}
+          <div className="space-y-8">
+            {/* 설명 */}
             <div>
-              <p className="text-fg-body leading-relaxed whitespace-pre-line">
+              <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wide">
+                Overview
+              </h4>
+              <p className="leading-relaxed text-gray-700 dark:text-gray-300 whitespace-pre-line">
                 {project.description}
               </p>
             </div>
 
-            {/* 주요 성과 */}
-            {project.impact && project.impact.length > 0 && (
-              <div>
-                <h3 className="font-bold text-lg mb-3 text-fg">
-                  주요 성과
-                </h3>
-                <ul className="space-y-2">
-                  {project.impact.map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-2 text-fg-body"
-                    >
-                      <span className="text-blue-500 mt-1">✔</span>
-                      <span>{item}</span>
-                    </li>
+            {/* 주요 포인트 */}
+            {project.impact && (
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-5">
+                <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wide">
+                  Key Points
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                  {project.impact.map((item) => (
+                    <li key={item}>• {item}</li>
                   ))}
                 </ul>
               </div>
@@ -96,14 +86,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             {/* 기술 스택 */}
             <div>
-              <h3 className="font-bold text-lg mb-3 text-fg">
-                기술 스택
-              </h3>
+              <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wide">
+                Tech Stack
+              </h4>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm text-fg-body"
+                    className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs"
                   >
                     {tag}
                   </span>

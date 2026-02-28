@@ -14,20 +14,17 @@ export default function Home() {
               Frontend Developer · 5년 경력
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold text-fg">
-              안하은
-            </h1>
+            <h1 className="text-5xl md:text-7xl font-bold text-fg">안하은</h1>
 
             <p className="text-2xl md:text-3xl text-fg leading-snug max-w-3xl mt-6 font-medium">
-              금융 레거시를 구조화하고{" "}
-              <span className="text-blue-600 dark:text-blue-400">
-                React로 전환해 실서비스까지 연결하는
-              </span>{" "}
-              프론트엔드 개발자입니다.
+              금융권 업무 시스템을 중심으로 5년간 프론트엔드 개발을
+              수행했습니다.
             </p>
 
-            <p className="text-fg-muted mt-4">
-              레거시 분석부터 React 전환, 실서비스 운영까지 경험했습니다.
+            <p className="text-fg-muted mt-4 leading-relaxed">
+              단계형 프로세스 설계, 상태 관리, 입력 데이터 검증 구조 구현을 통해
+              <br />
+              업무 흐름이 명확한 화면 구조를 만드는 데 집중해왔습니다.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -63,59 +60,51 @@ export default function Home() {
                 <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                   {stat.number}
                 </div>
-                <div className="text-fg-muted">
-                  {stat.label}
-                </div>
+                <div className="text-fg-muted">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 핵심 설계 역량 */}
       <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-fg">
-            핵심 설계 역량
+            핵심 경험
           </h2>
           <p className="text-fg-muted text-center mb-14">
-            금융 IT 환경에서 구조와 안정성을 고려한 프론트엔드 개발을
-            해왔습니다.
+            최근 프로젝트에서 수행한 주요 구조 설계 및 구현 경험입니다.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                icon: "🏗️",
-                title: "레거시를 웹 구조로 전환",
-                desc: "20년 운영 시스템 분석 후 기능 단위 재정의 및 웹 전환 전략 수립",
+                title: "단계형 프로세스 구조 구성",
+                desc: "Route 기반 신청 구조 설계 및 단계별 상태 전이 제어",
               },
               {
-                icon: "📊",
-                title: "복잡한 금융 도메인 구조화",
-                desc: "랩·신탁·대출 등 단계형 프로세스 설계 및 상태 흐름 관리",
+                title: "입력 데이터 검증 구조",
+                desc: "Zod 기반 Step 단위 schema 설계 및 공통 validation 모듈화",
               },
               {
-                icon: "🚀",
-                title: "실서비스 오픈 경험",
-                desc: "개발-운영 환경 차이 해결 및 빌드·배포 구조 정비",
+                title: "권한 기반 UI 제어",
+                desc: "권한코드 기반 메뉴 동적 구성 및 부서코드 조건 분기 처리",
               },
               {
-                icon: "🧩",
-                title: "공통 모듈 설계",
-                desc: "이미지 뷰어 · WebSocket 통신 모듈 표준화",
+                title: "업무 시스템 연계 경험",
+                desc: "WebView 환경 및 WebSocket 요청/응답 구조 기반 화면 구현",
               },
             ].map((item, i) => (
               <div
                 key={i}
                 className="p-7 border border-line rounded-2xl
-           hover:border-blue-500 hover:shadow-xl
-           hover:-translate-y-1 hover:bg-blue-50 dark:hover:bg-blue-950
-           transition-all duration-300
-           bg-surface"
+          hover:border-blue-500 hover:shadow-md
+          transition-all duration-300
+          bg-surface"
               >
-                <div className="text-3xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-fg">{item.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-fg">
+                  {item.title}
+                </h3>
                 <p className="text-fg-muted text-sm leading-relaxed">
                   {item.desc}
                 </p>
@@ -148,9 +137,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-fg pr-24">
                   {projects[0].title}
                 </h3>
-                <p className="text-fg-muted">
-                  {projects[0].period}
-                </p>
+                <p className="text-fg-muted">{projects[0].period}</p>
 
                 <p className="text-lg leading-relaxed text-fg-body">
                   {projects[0].summary}
@@ -186,9 +173,7 @@ export default function Home() {
                       </span>
                     )}
                   </div>
-                  <p className="text-fg-muted text-sm mb-3">
-                    {project.period}
-                  </p>
+                  <p className="text-fg-muted text-sm mb-3">{project.period}</p>
 
                   <p className="mb-4 text-fg-body">{project.summary}</p>
 
@@ -231,55 +216,53 @@ export default function Home() {
             Tech & Experience
           </h2>
           <p className="text-fg-muted text-center mb-16">
-            React 중심의 프론트엔드 개발자로, 금융 시스템 환경에서 실서비스를
-            경험했습니다.
+            React 중심으로 업무 시스템을 구현해왔습니다.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* 1. Core */}
+            {/* 1. Frontend Architecture */}
             <div className="p-8 rounded-2xl border border-blue-100 dark:border-blue-900 shadow-sm hover:shadow-lg transition bg-blue-50/40 dark:bg-blue-950/40">
               <h3 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">
-                Core Frontend
+                Frontend Architecture
               </h3>
               <ul className="space-y-2 text-sm text-fg-body">
                 <li>• React 기반 SPA 구조 설계</li>
-                <li>• TypeScript 타입 설계 경험</li>
-                <li>• Next.js 환경 구성</li>
-                <li>• Git 기반 협업</li>
+                <li>• Route 기반 단계형 프로세스 구성</li>
+                <li>• Zod 기반 입력 데이터 검증 구조</li>
+                <li>• Context 기반 상태 관리</li>
               </ul>
               <p className="text-xs text-gray-400 mt-6">
-                실서비스 오픈 및 운영 경험 보유
+                실제 업무 시스템 환경 적용 경험
               </p>
             </div>
 
-            {/* 2. Integration */}
+            {/* 2. Domain & System */}
             <div className="p-8 rounded-2xl border border-purple-100 dark:border-purple-900 shadow-sm hover:shadow-lg transition bg-purple-50/40 dark:bg-purple-950/40">
               <h3 className="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-4">
-                Integration
+                Domain & System Experience
               </h3>
               <ul className="space-y-2 text-sm text-fg-body">
-                <li>• REST API 통신 설계</li>
-                <li>• WebSocket 기반 실시간 연동</li>
+                <li>• 금융 상품 가입 및 대출 프로세스 경험</li>
+                <li>• WebSocket 기반 요청/응답 구조</li>
                 <li>• Android WebView 환경 대응</li>
+                <li>• 권한 코드 기반 UI 제어</li>
               </ul>
               <p className="text-xs text-gray-400 mt-6">
-                웹-클라이언트 간 통신 구조 구현 경험
+                금융 IT 업무 시스템 중심 개발 경험
               </p>
             </div>
 
-            {/* 3. Enterprise */}
-            <div className="p-8 rounded-2xl border border-green-100 dark:border-green-900 shadow-sm hover:shadow-lg transition bg-green-50/40 dark:bg-green-950/40">
-              <h3 className="text-lg font-semibold text-green-600 dark:text-green-400 mb-4">
-                Enterprise Experience
+            {/* 3. Background Stack */}
+            <div className="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition bg-white dark:bg-gray-900">
+              <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4">
+                Background Stack
               </h3>
               <ul className="space-y-2 text-sm text-fg-body">
                 <li>• Exbuilder6 기반 화면 개발</li>
-                <li>• C# Winform/WPF 클라이언트 개발</li>
+                <li>• C# Winform / WPF 클라이언트 개발</li>
                 <li>• SVN 형상관리 경험</li>
               </ul>
-              <p className="text-xs text-gray-400 mt-6">
-                금융 레거시 시스템 분석 및 전환 경험
-              </p>
+              <p className="text-xs text-gray-400 mt-6">레거시 시스템 경험</p>
             </div>
           </div>
         </div>

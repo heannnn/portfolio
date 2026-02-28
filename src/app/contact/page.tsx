@@ -28,9 +28,7 @@ export default function Contact() {
               <Mail className="text-blue-600 dark:text-blue-400" size={24} />
               <h3 className="text-lg font-semibold text-fg">Email</h3>
             </div>
-            <p className="text-fg-muted">
-              {CONTACT.email}
-            </p>
+            <p className="text-fg-muted">{CONTACT.email}</p>
           </a>
 
           {/* GitHub */}
@@ -44,9 +42,7 @@ export default function Contact() {
               <Github size={24} className="text-fg" />
               <h3 className="text-lg font-semibold text-fg">GitHub</h3>
             </div>
-            <p className="text-fg-muted">
-              {CONTACT.githubDisplay}
-            </p>
+            <p className="text-fg-muted">{CONTACT.githubDisplay}</p>
             <p className="text-sm text-blue-500 dark:text-blue-400 mt-2">
               Portfolio source available →
             </p>
@@ -59,7 +55,10 @@ export default function Contact() {
             className="p-8 border border-line rounded-2xl hover:shadow-lg transition group bg-surface"
           >
             <div className="flex items-center gap-4 mb-4">
-              <FileDown size={24} className="text-green-600 dark:text-green-400" />
+              <FileDown
+                size={24}
+                className="text-green-600 dark:text-green-400"
+              />
               <h3 className="text-lg font-semibold text-fg">Resume</h3>
             </div>
             <p className="text-fg-muted">PDF 다운로드</p>
@@ -68,12 +67,13 @@ export default function Contact() {
           {/* Location */}
           <div className="p-8 border border-line rounded-2xl bg-surface">
             <div className="flex items-center gap-4 mb-4">
-              <MapPin size={24} className="text-purple-600 dark:text-purple-400" />
+              <MapPin
+                size={24}
+                className="text-purple-600 dark:text-purple-400"
+              />
               <h3 className="text-lg font-semibold text-fg">Location</h3>
             </div>
-            <p className="text-fg-muted">
-              Seoul, Republic of Korea
-            </p>
+            <p className="text-fg-muted">Seoul, Republic of Korea</p>
           </div>
         </div>
 

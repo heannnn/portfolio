@@ -3,49 +3,47 @@
 import { useState } from "react";
 import { projects } from "@/lib/projects";
 import ProjectModal from "@/components/ProjectModal";
-import { Project, FilterType } from "@/types";
-
-const FILTERS: { label: string; value: FilterType }[] = [
-  { label: "All", value: "all" },
-  { label: "Architecture", value: "architecture" },
-  { label: "Process Design", value: "process" },
-  { label: "Client / Legacy", value: "client" },
-];
+import { Project } from "@/types";
 
 export default function Projects() {
-  const [filter, setFilter] = useState<FilterType>("all");
+  const [filter, setFilter] = useState<"all" | "react" | "c#">("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = projects.filter((project) => {
     if (filter === "all") return true;
-    return project.category === filter;
+    if (filter === "react") return project.tags.includes("React");
+    if (filter === "c#") return project.tags.includes("C#");
+    return true;
   });
-
-  const keyProjects = filteredProjects.filter((p) => p.isKey);
-  const otherProjects = filteredProjects.filter((p) => !p.isKey);
 
   return (
     <>
-      <div className="py-24 px-4 min-h-screen bg-base">
+      <div className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="mb-16 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-fg">
+          <div className="mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
               Projects
             </h1>
-            <p className="text-fg-muted">설계 중심의 주요 프로젝트 경험</p>
+            <p className="text-gray-600 dark:text-gray-400">
+              총 {projects.length}개의 금융 IT 프로젝트 경험
+            </p>
           </div>
 
           {/* Filter */}
-          <div className="flex justify-center gap-4 mb-16 flex-wrap">
-            {FILTERS.map((item) => (
+          <div className="flex gap-4 mb-10">
+            {[
+              { label: "All", value: "all" as const },
+              { label: "React", value: "react" as const },
+              { label: "C#", value: "c#" as const },
+            ].map((item) => (
               <button
                 key={item.value}
                 onClick={() => setFilter(item.value)}
-                className={`px-6 py-2 rounded-lg transition-all ${
+                className={`px-4 py-2 rounded-md text-sm transition ${
                   filter === item.value
                     ? "bg-blue-600 text-white"
-                    : "bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-fg-muted"
+                    : "bg-gray-100 dark:bg-gray-800 dark:text-gray-300"
                 }`}
               >
                 {item.label}
@@ -53,74 +51,43 @@ export default function Projects() {
             ))}
           </div>
 
-          {/* Key Projects */}
-          {keyProjects.length > 0 && (
-            <>
-              <h2 className="text-2xl font-bold mb-6 text-fg">
-                Key Projects
-              </h2>
+          {/* Projects Grid */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {filteredProjects.map((project) => (
+              <div
+                key={project.id}
+                onClick={() => setSelectedProject(project)}
+                className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-blue-500 dark:hover:border-blue-400 transition cursor-pointer"
+              >
+                <h3 className="text-xl font-semibold mb-2 dark:text-white">
+                  {project.title}
+                </h3>
 
-              <div className="grid md:grid-cols-2 gap-8 mb-20">
-                {keyProjects.map((project) => (
-                  <div
-                    key={project.id}
-                    onClick={() => setSelectedProject(project)}
-                    className="p-8 rounded-2xl border-2 border-blue-500 bg-blue-50 dark:bg-blue-950 hover:shadow-xl cursor-pointer transition-all"
-                  >
-                    <div className="mb-3 flex justify-between items-start gap-3">
-                      <h3 className="text-xl font-bold text-fg">
-                        {project.title}
-                      </h3>
-                      <span className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full shrink-0">
-                        Key
-                      </span>
-                    </div>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
+                  {project.period}
+                </p>
 
-                    <p className="text-sm text-fg-muted mb-2">
-                      {project.period} · {project.role}
-                    </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+                  {project.role}
+                </p>
 
-                    <p className="text-fg-body mb-4">{project.summary}</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  {project.summary}
+                </p>
 
-                    <p className="text-sm text-fg-muted">
-                      {project.cardImpact}
-                    </p>
-                  </div>
-                ))}
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.slice(0, 4).map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs dark:text-gray-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </>
-          )}
-
-          {/* Other Projects */}
-          {otherProjects.length > 0 && (
-            <>
-              <h2 className="text-2xl font-bold mb-6 text-fg">
-                Additional Experience
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {otherProjects.map((project) => (
-                  <div
-                    key={project.id}
-                    onClick={() => setSelectedProject(project)}
-                    className="p-6 rounded-xl border border-line bg-surface hover:border-blue-500 hover:shadow-lg cursor-pointer transition-all"
-                  >
-                    <h3 className="font-semibold mb-2 text-fg">
-                      {project.title}
-                    </h3>
-
-                    <p className="text-sm text-fg-muted mb-2">
-                      {project.period}
-                    </p>
-
-                    <p className="text-sm text-fg-body">
-                      {project.summary}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
+            ))}
+          </div>
         </div>
       </div>
 

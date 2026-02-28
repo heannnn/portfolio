@@ -21,9 +21,7 @@ export default function About() {
 
         {/* 자기소개 */}
         <section className="py-24 border-t border-line">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-fg">
-            소개
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-fg">소개</h2>
           <p className="text-fg-muted mb-10">
             5년간의 금융권 프로젝트 경험을 바탕으로 합니다.
           </p>
@@ -60,9 +58,7 @@ export default function About() {
 
         {/* 경력 타임라인 */}
         <section className="py-24 border-t border-line">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-fg">
-            경력
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-fg">경력</h2>
           <p className="text-fg-muted mb-10">금융권 중심의 5년 개발 이력</p>
           <div className="space-y-8">
             {[
@@ -108,12 +104,8 @@ export default function About() {
                   <h3 className="font-semibold text-xl mb-1 text-fg">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-fg-muted mb-2">
-                    {item.role}
-                  </p>
-                  <p className="text-fg-body">
-                    {item.description}
-                  </p>
+                  <p className="text-sm text-fg-muted mb-2">{item.role}</p>
+                  <p className="text-fg-body">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -135,7 +127,9 @@ export default function About() {
                 key={stack.title}
                 className={`p-8 rounded-2xl border shadow-sm hover:shadow-lg transition ${stack.cardClass}`}
               >
-                <h3 className={`font-semibold text-lg mb-4 ${stack.titleClass}`}>
+                <h3
+                  className={`font-semibold text-lg mb-4 ${stack.titleClass}`}
+                >
                   {stack.title}
                 </h3>
                 <ul className="space-y-3 text-sm text-fg-body">

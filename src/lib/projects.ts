@@ -9,9 +9,9 @@ import { kfccIbkBank } from "./data/kfcc-ibk-bank";
 import { post } from "./data/post";
 
 export const projects = [
+  jejuBank,
   nhLife,
   hanaSecurities,
-  jejuBank,
   dongyangLife,
   ablLife,
   kiwoom,

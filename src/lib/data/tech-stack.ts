@@ -14,7 +14,6 @@ export const TECH_STACKS: TechCategory[] = [
     items: [
       "React 기반 화면 구조 설계 및 상태 흐름 관리",
       "TypeScript 도입 및 타입 안정성 고려 설계",
-      "Next.js 환경 구성 및 프로젝트 구조 설계 경험",
       "Git 기반 협업 및 브랜치 전략 운영",
     ],
   },
@@ -35,7 +34,6 @@ export const TECH_STACKS: TechCategory[] = [
       "border-green-100 bg-green-50/40 dark:bg-green-950/40 dark:border-green-900",
     titleClass: "text-green-600 dark:text-green-400",
     items: [
-      "Exbuilder6 기반 금융 화면 개발 경험",
       "C# Winform/WPF 클라이언트 개발 경험",
       "금융 도메인(본인인증, 심사, 가입 프로세스) 이해",
       "장기 운영 레거시 시스템 구조 분석 경험",

@@ -7,17 +7,18 @@ export const jejuBank: Project = {
   role: "Frontend Engineer",
   isKey: true,
   category: "process",
-  summary: "태블릿 기반 8단계 대출 신청 프로세스 설계 및 상태 관리 구조 구현",
-  cardImpact: "✔ Route 기반 단계 설계 · Context 상태관리 · Zod 검증",
-  description: `태블릿 WebView 환경에서 집단대출 신청 프로세스를 React로 구현했습니다.  
-Route 기반 8단계 구조로 분리했으며, 단계 간 이동 시 선행 조건 검증을 수행하도록 설계했습니다.  
-Step마다 개별 Zod schema를 적용했고, 공통 validation 함수로 숫자·소수점 입력 검증 로직을 분리했습니다.  
-인증 완료 후 Native 임시저장 API를 호출하여 태블릿 기기에 상태를 보관하도록 구성했으며, 일주일 내 저장 이력이 있을 경우 복구가 가능하도록 처리했습니다.  
-공동명의자 여부에 따라 조건부 단계 분기를 구현했습니다.`,
+  summary:
+    "태블릿 기반 7단계 대출 신청 프로세스를 프론트엔드 단독으로 설계하고 구현했습니다.",
+  cardImpact: "✔ 단계 분기 구조 설계 · Zod 검증 · 단계별 임시저장",
+  description: `태블릿 WebView 환경에서 집단대출 신청 프로세스를 React로 단독 개발했습니다.
+고객 인증부터 증빙서류 촬영까지 7단계 대출 신청 프로세스를 구현했습니다.
+신청자와 공동명의자가 동일한 7단계 흐름을 공유하는 구조였기 때문에, 단계 구성을 재사용 가능하게 설계하고 명의자 구분값으로 흐름을 제어하는 방식을 선택했습니다.
+단계별 입력 검증은 Zod schema를 적용했고, 공통되는 검증 로직은 모듈화했습니다.
+본인인증 완료 이후부터는 단계 이동 시 자동 임시저장되는 구조로 설계했습니다.`,
   impact: [
-    "단계형 프로세스 설계 경험",
-    "상태 관리 아키텍처 설계",
-    "태블릿 UX 최적화",
+    "7단계 프로세스 단독 설계 및 구현",
+    "공동명의자 분기 구조 설계",
+    "Zod 기반 단계별 입력 검증 및 공통 로직 모듈화",
   ],
-  tags: ["React", "Context", "Zod", "Process Design"],
+  tags: ["React", "Zod", "Android WebView", "RESTful API", "Git"],
 };

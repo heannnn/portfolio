@@ -7,11 +7,8 @@ export const post: Project = {
   role: "Business Logic Developer",
   isKey: false,
   category: "client",
-  summary: "통합단말-전자문서 뷰어 간 연동 비즈니스 로직 개발",
-  description: `
-✔ 전자문서 뷰어 연동 로직 구현
-✔ 시스템 간 데이터 흐름 및 처리 로직 개발
-`,
-  impact: ["금융 차세대 시스템 구축 경험"],
+  summary: "통합단말과 전자문서 뷰어 간 연동 비즈니스 로직을 개발했습니다.",
+  description: `차세대 금융 시스템 구축 프로젝트에서 통합단말과 전자문서 뷰어 간 연동 비즈니스 로직을 개발했습니다.`,
+  impact: ["통합단말-전자문서 뷰어 연동 로직 구현"],
   tags: ["JavaScript", "SVN"],
 };

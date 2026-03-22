@@ -228,7 +228,9 @@ export default function Home() {
               <ul className="space-y-2 text-sm text-fg-body">
                 <li>• React 기반 SPA 구조 설계</li>
                 <li>• Route 기반 단계형 프로세스 구성</li>
-                <li>• Zod 기반 입력 데이터 검증 구조</li>
+                <li>
+                  • Zod 기반 단계별 입력 검증 schema 설계 및 공통 로직 모듈화
+                </li>
                 <li>• Context 기반 상태 관리</li>
               </ul>
               <p className="text-xs text-gray-400 mt-6">
@@ -258,9 +260,8 @@ export default function Home() {
                 Background Stack
               </h3>
               <ul className="space-y-2 text-sm text-fg-body">
-                <li>• Exbuilder6 기반 화면 개발</li>
                 <li>• C# Winform / WPF 클라이언트 개발</li>
-                <li>• SVN 형상관리 경험</li>
+                <li>• Git, SVN 형상관리 경험</li>
               </ul>
               <p className="text-xs text-gray-400 mt-6">레거시 시스템 경험</p>
             </div>
@@ -277,7 +278,8 @@ export default function Home() {
           <p className="text-lg text-fg-muted mb-8 max-w-2xl mx-auto">
             레거시 시스템 분석부터 React 전환까지,
             <br />
-            5년간의 금융권 경험을 바탕으로 함께 성장하고 싶습니다.
+            5년간의 금융권 경험을 바탕으로 엔터프라이즈 환경에서 안정적인
+            프론트엔드 구조를 만드는 것을 핵심 역량으로 삼고 있습니다.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a

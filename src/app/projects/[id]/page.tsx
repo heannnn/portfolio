@@ -1,83 +1,95 @@
+import { projects } from "@/lib/projects";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { projects } from "@/lib/projects";
+import { ArrowLeft } from "lucide-react";
 
-interface PageProps {
-  params: { id: string };
-}
-
-export default function ProjectDetail({ params }: PageProps) {
-  const project = projects.find((p) => p.id === params.id);
-
-  if (!project) return notFound();
+export default async function ProjectDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
+  if (!project) notFound();
 
   return (
     <div className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* 상단 헤더 */}
-        <div className="mb-12 pb-8 border-b border-gray-200 dark:border-gray-800">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            {project.title}
-          </h1>
+      <div className="max-w-3xl mx-auto">
+        <Link
+          href="/projects"
+          className="inline-flex items-center gap-2 text-fg-muted hover:text-fg mb-10 transition"
+        >
+          <ArrowLeft size={16} />
+          전체 프로젝트
+        </Link>
 
-          <p className="text-gray-500">{project.period}</p>
-          <p className="text-sm text-gray-500 mt-1">{project.role}</p>
-        </div>
-
-        {/* Overview */}
-        <section className="mb-14">
-          <h2 className="text-lg font-semibold uppercase tracking-wide text-gray-400 mb-4">
-            Overview
-          </h2>
-          <p className="leading-7 text-gray-700 dark:text-gray-300 whitespace-pre-line">
-            {project.description}
-          </p>
-        </section>
-
-        {/* Key Points */}
-        {project.impact && (
-          <section className="mb-14">
-            <h2 className="text-lg font-semibold uppercase tracking-wide text-gray-400 mb-4">
-              Key Points
-            </h2>
-
-            <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-              {project.impact.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="text-gray-400">–</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {/* Tech Stack */}
-        <section className="mb-16">
-          <h2 className="text-lg font-semibold uppercase tracking-wide text-gray-400 mb-4">
-            Tech Stack
-          </h2>
-
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm"
-              >
-                {tag}
+        {/* 전체를 하나의 카드로 */}
+        <div className="p-8 md:p-10 rounded-2xl bg-surface border border-line">
+          {/* 헤더 */}
+          <div className="mb-8 pb-8 border-b border-line">
+            <h1 className="text-3xl md:text-4xl font-bold text-fg mb-4">
+              {project.title}
+            </h1>
+            <div className="flex flex-wrap gap-3">
+              <span className="px-3 py-1 bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 rounded-full text-sm">
+                {project.period}
               </span>
-            ))}
+              <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-fg-muted rounded-full text-sm">
+                {project.role}
+              </span>
+            </div>
           </div>
-        </section>
 
-        {/* 돌아가기 */}
-        <div className="pt-10 border-t border-gray-200 dark:border-gray-800">
-          <Link
-            href="/projects"
-            className="text-blue-600 dark:text-blue-400 hover:underline"
-          >
-            ← 프로젝트 목록으로 돌아가기
-          </Link>
+          {/* 프로젝트 개요 */}
+          <div className="mb-8 pb-8 border-b border-line">
+            <h2 className="text-base font-semibold text-fg-muted uppercase tracking-wide mb-4">
+              프로젝트 개요
+            </h2>
+            <div className="space-y-3">
+              {project.description
+                .split("\n")
+                .filter(Boolean)
+                .map((line, i) => (
+                  <p key={i} className="text-fg-body leading-relaxed">
+                    {line}
+                  </p>
+                ))}
+            </div>
+          </div>
+
+          {/* 주요 성과 */}
+          {project.impact && project.impact.length > 0 && (
+            <div className="mb-8 pb-8 border-b border-line">
+              <h2 className="text-base font-semibold text-fg-muted uppercase tracking-wide mb-4">
+                주요 성과
+              </h2>
+              <ul className="space-y-3">
+                {project.impact.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-fg-body">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* 기술 스택 */}
+          <div>
+            <h2 className="text-base font-semibold text-fg-muted uppercase tracking-wide mb-4">
+              기술 스택
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm text-fg-body"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

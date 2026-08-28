@@ -1,6 +1,11 @@
-import { ArrowRight, FileDown, Mail } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import Link from "next/link";
-import { projects } from "@/lib/projects";
+import { Github } from "lucide-react";
+import {
+  featuredProject,
+  featuredSubProjects,
+  personalProjects,
+} from "@/lib/projects";
 import { CONTACT } from "@/lib/config";
 
 export default function Home() {
@@ -11,20 +16,20 @@ export default function Home() {
         <div className="max-w-4xl w-full">
           <div className="space-y-6">
             <div className="inline-block px-4 py-2 bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium">
-              Frontend Developer · 5년 경력
+              Frontend Developer · 금융권 5년+
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold text-fg">안하은</h1>
 
             <p className="text-2xl md:text-3xl text-fg leading-snug max-w-3xl mt-6 font-medium">
-              금융권 업무 시스템을 중심으로 5년간 프론트엔드 개발을
-              수행했습니다.
+              보험·증권·은행 등 금융권 시스템을 5년 넘게 개발했으며, 현재는
+              React와 JavaScript 기반 프론트엔드 개발을 중심으로 업무를 하고
+              있습니다.
             </p>
 
             <p className="text-fg-muted mt-4 leading-relaxed">
-              단계형 프로세스 설계, 상태 관리, 입력 데이터 검증 구조 구현을 통해
-              <br />
-              업무 흐름이 명확한 화면 구조를 만드는 데 집중해왔습니다.
+              오래 운영된 레거시 시스템을 웹으로 전환하고, C# 클라이언트와
+              WebSocket으로 웹과 로컬 프로그램을 연동하는 작업을 함께 해왔습니다.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -52,7 +57,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-3 gap-4 md:gap-8">
             {[
-              { number: "5년", label: "경력" },
+              { number: "5년+", label: "경력" },
               { number: "9개", label: "프로젝트" },
               { number: "10개", label: "금융기관" },
             ].map((stat, i) => (
@@ -73,26 +78,26 @@ export default function Home() {
             핵심 경험
           </h2>
           <p className="text-fg-muted text-center mb-14">
-            최근 프로젝트에서 수행한 주요 구조 설계 및 구현 경험입니다.
+            여러 금융권 프로젝트를 거치며 쌓은 대표적인 경험입니다.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                title: "단계형 프로세스 구조 구성",
-                desc: "Route 기반 신청 구조 설계 및 단계별 상태 전이 제어",
+                title: "레거시 시스템 분석 및 웹 전환",
+                desc: "오래 운영된 Windows 기반 시스템의 화면·업무 흐름·연계 요소를 분석해 웹 환경으로 전환",
               },
               {
-                title: "입력 데이터 검증 구조",
-                desc: "Zod 기반 Step 단위 schema 설계 및 공통 validation 모듈화",
+                title: "프론트엔드 공통 구조 설계",
+                desc: "이미지 뷰어, WebSocket 통신처럼 여러 화면에서 함께 쓰는 기능을 공통화하고 구현 기준 정리",
               },
               {
-                title: "권한 기반 UI 제어",
-                desc: "권한코드 기반 메뉴 동적 구성 및 부서코드 조건 분기 처리",
+                title: "웹 · 로컬 연동",
+                desc: "WebSocket과 WebView 환경에서 웹 화면과 로컬·Native 프로그램을 연동",
               },
               {
-                title: "업무 시스템 연계 경험",
-                desc: "WebView 환경 및 WebSocket 요청/응답 구조 기반 화면 구현",
+                title: "운영환경 반영 및 안정화",
+                desc: "개발환경과 운영환경의 차이에서 생긴 통신·외부 솔루션 문제를 분석하고 대응",
               },
             ].map((item, i) => (
               <div
@@ -125,7 +130,7 @@ export default function Home() {
           </h2>
 
           <div className="space-y-8">
-            {/* 하나증권 - 강조 */}
+            {/* 대표 프로젝트 - 강조 */}
             <div className="relative p-8 bg-surface rounded-2xl border border-line shadow-md hover:shadow-xl">
               <div className="absolute top-4 right-4">
                 <span className="px-3 py-1 bg-blue-500 text-white text-xs rounded-full font-medium">
@@ -135,16 +140,16 @@ export default function Home() {
 
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold text-fg pr-24">
-                  {projects[0].title}
+                  {featuredProject.title}
                 </h3>
-                <p className="text-fg-muted">{projects[0].period}</p>
+                <p className="text-fg-muted">{featuredProject.period}</p>
 
                 <p className="text-lg leading-relaxed text-fg-body">
-                  {projects[0].summary}
+                  {featuredProject.summary}
                 </p>
 
                 <div className="flex flex-wrap gap-2 pt-4">
-                  {projects[0].tags.map((tag) => (
+                  {featuredProject.tags.map((tag) => (
                     <span
                       key={tag}
                       className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm text-fg-body"
@@ -158,7 +163,7 @@ export default function Home() {
 
             {/* 나머지 프로젝트 */}
             <div className="grid md:grid-cols-2 gap-6">
-              {projects.slice(1, 3).map((project) => (
+              {featuredSubProjects.slice(0, 2).map((project) => (
                 <div
                   key={project.id}
                   className="p-6 bg-surface rounded-xl border border-line hover:border-blue-500 dark:hover:border-blue-400 transition-all"
@@ -202,9 +207,55 @@ export default function Home() {
               href="/projects"
               className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:gap-3 transition-all font-medium"
             >
-              전체 프로젝트 보기 (9개)
+              전체 프로젝트 보기
               <ArrowRight size={18} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Personal Projects */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-fg">
+            Personal Projects
+          </h2>
+          <p className="text-fg-muted text-center mb-14">
+            React Native, Next.js, TypeScript, C#/WPF 등을 활용한 개인
+            프로젝트입니다.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {personalProjects.map((project) => (
+              <Link
+                key={project.id}
+                href={`/projects/${project.id}`}
+                className="p-6 bg-surface rounded-xl border border-line hover:border-blue-500 dark:hover:border-blue-400 transition-all block"
+              >
+                <h3 className="text-lg font-bold text-fg mb-2">
+                  {project.cardTitle ?? project.title}
+                </h3>
+                <p className="text-fg-body text-sm mb-4">
+                  {project.cardSummary ?? project.summary}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {(project.cardTags ?? project.tags).slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs text-fg-body"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                {project.github && (
+                  <span className="inline-flex items-center gap-1 mt-4 text-xs text-fg-muted">
+                    <Github size={13} />
+                    GitHub
+                  </span>
+                )}
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -216,54 +267,80 @@ export default function Home() {
             Tech & Experience
           </h2>
           <p className="text-fg-muted text-center mb-16">
-            React 중심으로 업무 시스템을 구현해왔습니다.
+            실무에서 활용한 기술과 개인 프로젝트를 통해 확장한 기술 경험을 구분해
+            정리했습니다.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* 1. Frontend Architecture */}
+            {/* 1. Frontend */}
             <div className="p-8 rounded-2xl border border-blue-100 dark:border-blue-900 shadow-sm hover:shadow-lg transition bg-blue-50/40 dark:bg-blue-950/40">
               <h3 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">
-                Frontend Architecture
+                Frontend
               </h3>
               <ul className="space-y-2 text-sm text-fg-body">
-                <li>• React 기반 SPA 구조 설계</li>
-                <li>• Route 기반 단계형 프로세스 구성</li>
-                <li>
-                  • Zod 기반 단계별 입력 검증 schema 설계 및 공통 로직 모듈화
-                </li>
-                <li>• Context 기반 상태 관리</li>
+                <li>• React 기반 화면 구조 설계 및 상태 관리</li>
+                <li>• JavaScript(ES6+) 중심 개발</li>
+                <li>• 여러 화면에서 공통으로 쓰는 기능 모듈화</li>
+                <li>• Exbuilder6 기반 화면 개발</li>
               </ul>
-              <p className="text-xs text-gray-400 mt-6">
-                실제 업무 시스템 환경 적용 경험
-              </p>
+              <p className="text-xs text-gray-400 mt-6">실무 중심 기술</p>
             </div>
 
-            {/* 2. Domain & System */}
+            {/* 2. Integration & Client */}
             <div className="p-8 rounded-2xl border border-purple-100 dark:border-purple-900 shadow-sm hover:shadow-lg transition bg-purple-50/40 dark:bg-purple-950/40">
               <h3 className="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-4">
-                Domain & System Experience
+                Integration & Client
               </h3>
               <ul className="space-y-2 text-sm text-fg-body">
-                <li>• 금융 상품 가입 및 대출 프로세스 경험</li>
-                <li>• WebSocket 기반 요청/응답 구조</li>
+                <li>• REST API 연동 기반 화면 구현</li>
+                <li>• WebSocket 기반 웹-로컬 통신</li>
+                <li>• C# WinForms / WPF 클라이언트 개발</li>
                 <li>• Android WebView 환경 대응</li>
-                <li>• 권한 코드 기반 UI 제어</li>
               </ul>
               <p className="text-xs text-gray-400 mt-6">
-                금융 IT 업무 시스템 중심 개발 경험
+                웹과 로컬 프로그램 연동 경험
               </p>
             </div>
 
-            {/* 3. Background Stack */}
+            {/* 3. Tooling */}
             <div className="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition bg-white dark:bg-gray-900">
               <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4">
-                Background Stack
+                Tooling
               </h3>
               <ul className="space-y-2 text-sm text-fg-body">
-                <li>• C# Winform / WPF 클라이언트 개발</li>
-                <li>• Git, SVN 형상관리 경험</li>
+                <li>• Git, SVN 형상관리</li>
+                <li>• REST API · WebSocket 연동</li>
               </ul>
-              <p className="text-xs text-gray-400 mt-6">레거시 시스템 경험</p>
+              <p className="text-xs text-gray-400 mt-6">
+                실무에서 함께 사용한 도구
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 p-8 rounded-2xl border border-line bg-base">
+            <h3 className="text-lg font-semibold text-fg mb-1">
+              개인 프로젝트에서 사용한 기술
+            </h3>
+            <p className="text-xs text-gray-400 mb-4">
+              실무 경력과는 별개로, 최근 개인 프로젝트에서 직접 다뤄본 기술입니다.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                "TypeScript",
+                "Next.js",
+                "React Native",
+                "Expo",
+                "TanStack Query",
+                "Zustand",
+                "UDP",
+              ].map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm text-fg-body"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
         </div>
@@ -276,10 +353,10 @@ export default function Home() {
             함께 일하고 싶으신가요?
           </h2>
           <p className="text-lg text-fg-muted mb-8 max-w-2xl mx-auto">
-            레거시 시스템 분석부터 React 전환까지,
+            레거시 시스템 분석부터 웹 전환, 웹-로컬 연동까지
             <br />
-            5년간의 금융권 경험을 바탕으로 엔터프라이즈 환경에서 안정적인
-            프론트엔드 구조를 만드는 것을 핵심 역량으로 삼고 있습니다.
+            5년 넘게 쌓은 금융권 프론트엔드 경험을 바탕으로 함께 일할 기회를
+            찾고 있습니다.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
@@ -288,14 +365,6 @@ export default function Home() {
             >
               <Mail size={20} />
               이메일 보내기
-            </a>
-            <a
-              href={CONTACT.resume}
-              download
-              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-gray-900 dark:border-gray-300 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all text-lg font-medium"
-            >
-              <FileDown size={20} />
-              이력서 다운로드
             </a>
           </div>
         </div>

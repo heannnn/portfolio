@@ -1,4 +1,4 @@
-import { Mail, Github, FileDown, MapPin } from "lucide-react";
+import { Mail, Github, MapPin } from "lucide-react";
 import { CONTACT } from "@/lib/config";
 
 export default function Contact() {
@@ -46,22 +46,6 @@ export default function Contact() {
             <p className="text-sm text-blue-500 dark:text-blue-400 mt-2">
               Portfolio source available →
             </p>
-          </a>
-
-          {/* Resume */}
-          <a
-            href={CONTACT.resume}
-            download
-            className="p-8 border border-line rounded-2xl hover:shadow-lg transition group bg-surface"
-          >
-            <div className="flex items-center gap-4 mb-4">
-              <FileDown
-                size={24}
-                className="text-green-600 dark:text-green-400"
-              />
-              <h3 className="text-lg font-semibold text-fg">Resume</h3>
-            </div>
-            <p className="text-fg-muted">PDF 다운로드</p>
           </a>
 
           {/* Location */}

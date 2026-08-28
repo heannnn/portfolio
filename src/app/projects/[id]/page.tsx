@@ -1,7 +1,7 @@
-import { projects } from "@/lib/projects";
+import { allProjects } from "@/lib/projects";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 
 export default async function ProjectDetail({
   params,
@@ -9,7 +9,7 @@ export default async function ProjectDetail({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const project = projects.find((p) => p.id === id);
+  const project = allProjects.find((p) => p.id === id);
   if (!project) notFound();
 
   return (
@@ -38,6 +38,33 @@ export default async function ProjectDetail({
                 {project.role}
               </span>
             </div>
+
+            {(project.github || project.demo) && (
+              <div className="flex flex-wrap gap-3 mt-5">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-line rounded-lg text-sm text-fg-body hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+                  >
+                    <Github size={16} />
+                    GitHub
+                  </a>
+                )}
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-line rounded-lg text-sm text-fg-body hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+                  >
+                    <ExternalLink size={16} />
+                    Demo
+                  </a>
+                )}
+              </div>
+            )}
           </div>
 
           {/* 프로젝트 개요 */}

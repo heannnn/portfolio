@@ -1,6 +1,4 @@
-import { FileDown } from "lucide-react";
-import { CONTACT } from "@/lib/config";
-import { TECH_STACKS } from "@/lib/data/tech-stack";
+import { TECH_STACKS, PERSONAL_STACK } from "@/lib/data/tech-stack";
 
 export default function About() {
   return (
@@ -9,13 +7,14 @@ export default function About() {
         {/* Header */}
         <div className="mb-16">
           <div className="inline-block px-4 py-2 bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium mb-6">
-            Frontend Developer · 5년 경력
+            Frontend Developer · 금융권 5년+
           </div>
           <h1 className="text-5xl md:text-6xl font-bold text-fg mb-4">
             안하은
           </h1>
           <p className="text-fg-muted text-lg">
-            금융 레거시를 구조화하고 React로 전환해 실서비스까지 연결해왔습니다.
+            오래 운영된 금융권 레거시 시스템을 분석해 React 기반 웹으로 전환하고,
+            웹과 로컬 프로그램을 연동하는 작업을 해왔습니다.
           </p>
         </div>
 
@@ -39,33 +38,37 @@ export default function About() {
               신청자와 공동명의자가 동일한 7단계 흐름을 공유하는 구조였기
               때문에, 단계 구성을 재사용 가능하게 설계하고 명의자 구분값으로
               흐름을 제어하는 방식을 선택했습니다. 본인인증 완료 이후부터는 단계
-              이동 시 자동 임시저장되는 구조로 설계했습니다. 단독으로 전체 화면
-              구조를 설계하고 구현하는 과정에서, 화면 단위 구현보다 업무 단계와
-              상태 흐름을 기준으로 구조를 먼저 정의하는 것이 중요하다는 것을
-              실무를 통해 확인했습니다.
+              이동 시 자동 임시저장되는 구조로 설계했습니다. 화면 구조 설계와
+              구현을 담당하는 과정에서, 화면 단위 구현보다 업무 단계와 상태
+              흐름을 기준으로 구조를 먼저 정의하는 것이 중요하다는 것을 실무를
+              통해 확인했습니다.
             </p>
             <p>
-              하나증권 ODS 프로젝트에서는 설계 문서가 불충분한 상황에서 중도
-              투입되었습니다. 기획 문서만으로는 업무 흐름 파악이 어렵다고 판단해
-              기존 레거시 시스템을 직접 분석했고, 랩·신탁·투자운용 상품 가입
-              절차를 역추적해 정리한 뒤 이를 기준으로 React 화면 구조를
-              재설계했습니다. 이후 실서비스 전환 단계에서는 빌드 설정과 환경별
-              동작 차이로 발생한 이슈들을 직접 분석하고 해결하며 서비스 오픈을
-              완료했습니다.
+              하나증권 ODS 프로젝트에서는 설계 문서가 충분하지 않은 상황에서
+              프로젝트 중도에 투입되었습니다. 기획 문서만으로는 업무 흐름 파악이
+              어렵다고 판단해 기존 레거시 시스템을 직접 분석했고, 랩·신탁·투자운용
+              상품 가입 절차를 역추적해 정리한 뒤 이를 기준으로 React 화면
+              구조를 재설계했습니다. 책임자 승인 절차를 화면 흐름에 반영해 승인
+              단계별 처리 로직을 구현했고, 실서비스 전환 단계에서는 빌드 설정과
+              환경별 동작 차이로 발생한 이슈들을 직접 분석하고 해결하며 서비스
+              오픈을 완료했습니다.
             </p>
             <p>
-              현재는 NH농협생명 시스템 웹 전환 프로젝트에서 프론트엔드 개발자
-              3명을 리딩하며 전환 기준을 정의하고 공통 모듈과 개발 가이드를
-              정리하는 역할을 수행하고 있습니다. 기존 화면을 기능 단위로
-              분해하고 공통 컴포넌트와 공통 로직을 정리해 팀 전체의 구현 방향을
-              맞추는 구조로 전환 작업을 진행하고 있습니다.
+              NH농협생명 이미지시스템 재구축 프로젝트(~2026.08)에서는 약 80개의
+              AS-IS 화면을 실제 화면과 기존 소스를 함께 확인하며 분석하는 단계부터
+              참여했습니다. 이미지 뷰어와 웹-로컬 간 WebSocket 통신 공통 기능을
+              설계·개발하고 개발 가이드를 작성했으며, 프론트엔드 개발자 3명의
+              구현 방향과 공통 기준을 정리하고 코드 리뷰를 진행했습니다.
+              운영환경 반영 단계에서는 개발환경과 다르게 동작하는 통신 이슈와
+              외부 솔루션 연계 요소를 분석해 안정화까지 대응했습니다.
             </p>
             <p>
-              여러 프로젝트를 거치며 프론트엔드 개발에서 중요한 것은 화면을
-              구현하는 것이 아니라 복잡한 업무 흐름과 상태를 유지보수와 확장이
-              가능한 구조로 설계하는 것이라는 점을 반복해서 확인했습니다.
-              엔터프라이즈 환경에서 안정적으로 운영될 수 있는 프론트엔드 구조를
-              설계하는 것을 핵심 역량으로 삼고 있습니다.
+              여러 프로젝트를 거치며, 프론트엔드 개발에서 중요한 것은 화면을
+              구현하는 것만이 아니라 기존 시스템과 업무 흐름을 먼저 이해하고
+              복잡한 상태를 유지보수·확장이 가능한 구조로 정리하는 것이라는 점을
+              반복해서 확인했습니다. 레거시 분석과 웹 전환, 공통 기능 설계,
+              운영환경 반영까지 이어지는 과정을 직접 경험하며 실무 감각을
+              쌓아왔습니다.
             </p>
           </div>
         </section>
@@ -73,20 +76,20 @@ export default function About() {
         {/* 경력 타임라인 */}
         <section className="py-24 border-t border-line">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-fg">경력</h2>
-          <p className="text-fg-muted mb-10">금융권 중심의 5년 개발 이력</p>
+          <p className="text-fg-muted mb-10">금융권 중심의 5년+ 개발 이력</p>
           <div className="space-y-8">
             {[
               {
                 year: "2025",
                 title: "NH농협생명 이미지시스템 재구축",
-                role: "프론트엔드 설계 및 개발 / 프론트엔드 3명 리딩",
+                role: "프론트엔드 개발 / 공통 기능 설계·개발 (2025.11 ~ 2026.08)",
                 description:
-                  "20년 운영된 윈도우 기반 이미지 시스템 웹 전환, 공통 모듈 설계 및 개발 가이드 작성",
+                  "약 80개 AS-IS 화면 분석부터 웹 전환, 이미지뷰어·WebSocket 통신 공통 기능 개발, 개발 가이드 작성, 운영환경 반영·안정화까지 수행",
               },
               {
                 year: "2025",
                 title: "제주은행 집단대출 ODS시스템 구축",
-                role: "프론트엔드 개발 (단독)",
+                role: "프론트엔드 개발 담당",
                 description:
                   "태블릿 기반 7단계 대출 신청 프로세스 구현, 공동명의자 분기 구조 및 단계별 상태 관리 설계",
               },
@@ -170,9 +173,12 @@ export default function About() {
             Technical Experience
           </h2>
           <p className="text-fg-muted mb-10">
-            실무 프로젝트에서 사용하고 경험한 기술 역량입니다.
+            실무 프로젝트에서 사용한 기술을 중심으로 정리했습니다.
           </p>
 
+          <h3 className="text-lg font-semibold text-fg mb-6">
+            Professional Experience
+          </h3>
           <div className="grid md:grid-cols-3 gap-8">
             {TECH_STACKS.map((stack) => (
               <div
@@ -192,18 +198,27 @@ export default function About() {
               </div>
             ))}
           </div>
-        </section>
 
-        {/* 이력서 다운로드 */}
-        <section>
-          <a
-            href={CONTACT.resume}
-            download
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all text-lg font-medium"
-          >
-            <FileDown size={20} />
-            이력서 다운로드 (PDF)
-          </a>
+          <h3 className="text-lg font-semibold text-fg mt-12 mb-2">
+            Personal Projects
+          </h3>
+          <p className="text-fg-muted text-sm mb-6">
+            실무 경력과는 별개로, 최근 개인 프로젝트에서 직접 사용해본 기술입니다.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {PERSONAL_STACK.map((tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm text-fg-body"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <p className="text-xs text-gray-400 mt-8">
+            이 포트폴리오 사이트는 TypeScript · Next.js(App Router)로 제작했습니다.
+          </p>
         </section>
       </div>
     </div>

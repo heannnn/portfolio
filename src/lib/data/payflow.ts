@@ -4,7 +4,7 @@ export const payflow: Project = {
   id: "payflow",
   title: "PayFlow — 모바일 결제 흐름",
   period: "2026.08",
-  role: "개인 프로젝트",
+  role: "개인 프로젝트 · AI 코딩 도구 활용 학습용 데모",
   type: "personal",
   category: "process",
   github: "https://github.com/heannnn/payflow",
@@ -13,7 +13,7 @@ export const payflow: Project = {
   cardSummary:
     "React Native로 모바일 결제 흐름을 구현하고, 중복 요청과 앱 상태 변화에 따른 결제 상태 복구를 다룬 프로젝트입니다.",
   cardImpact:
-    "✔ PaymentStatus 상태 전이 · idempotency key로 중복 결제 차단 · 앱 복귀 시 결제 상태 재조회",
+    "✔ PaymentStatus 상태 전이 · 앱 복귀 시 결제 상태 재조회 · Mock 결제 API",
   description: `React Native(Expo) 앱으로, 실제 PG 연동 없이 Mock 결제 API로 결제 요청과 응답 흐름을 구현했습니다.
 결제 진행 상태를 여러 개의 boolean이 아니라 하나의 PaymentStatus 값으로 모델링해, 각 화면이 필요한 선행 상태가 없으면 이전 단계로 되돌아가도록 했습니다.
 진행 중인 결제 흐름 상태는 Zustand로, 서버에 원본이 있는 데이터(결제 요청 결과, 결제 내역)는 TanStack Query로 역할을 나눴습니다.

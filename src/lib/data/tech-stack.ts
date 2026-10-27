@@ -7,37 +7,36 @@ export interface TechCategory {
 
 export const TECH_STACKS: TechCategory[] = [
   {
-    title: "Core Frontend",
-    cardClass:
-      "border-blue-100 bg-blue-50/40 dark:bg-blue-950/40 dark:border-blue-900",
-    titleClass: "text-blue-600 dark:text-blue-400",
+    title: "Frontend",
+    cardClass: "border-line bg-surface",
+    titleClass: "text-fg",
     items: [
-      "React 기반 화면 구조 설계 및 상태 흐름 관리",
-      "JavaScript(ES6+) 중심 개발",
-      "여러 화면에서 공통으로 쓰는 기능 모듈화",
-      "Exbuilder6 기반 화면 개발",
+      "React · Recoil · React Router — 하나증권, 제주은행",
+      "Zod — 제주은행",
+      "Ant Design · webpack — 하나증권",
+      "JavaScript · exBuilder6 — NH농협생명, 우체국",
+      "JSP (세션 처리, 로그인 화면) — NH농협생명",
     ],
   },
   {
     title: "Integration",
-    cardClass:
-      "border-purple-100 bg-purple-50/40 dark:bg-purple-950/40 dark:border-purple-900",
-    titleClass: "text-purple-600 dark:text-purple-400",
+    cardClass: "border-line bg-surface",
+    titleClass: "text-fg",
     items: [
-      "REST API 스펙 분석 기반 UI 흐름 설계",
-      "WebSocket 기반 웹-로컬 프로그램 연동",
-      "Android WebView 환경 대응 경험",
+      "WebSocket — NH농협생명, ABL생명",
+      "Android WebView — 하나증권, 제주은행",
+      "Native 임시저장 API 연동 — 제주은행",
+      "외부 솔루션 연동 (녹취, SSO, 사설인증서) — 하나증권, NH농협생명",
     ],
   },
   {
-    title: "Client & Enterprise",
-    cardClass:
-      "border-green-100 bg-green-50/40 dark:bg-green-950/40 dark:border-green-900",
-    titleClass: "text-green-600 dark:text-green-400",
+    title: "Client",
+    cardClass: "border-line bg-surface",
+    titleClass: "text-fg",
     items: [
-      "C# WinForms / WPF 클라이언트 개발 경험",
-      "장기 운영 레거시 시스템 구조 분석 및 웹 전환 경험",
-      "Git, SVN 기반 협업",
+      "C# WinForms — ABL생명, 모바일신분증, 동양생명",
+      "C# WPF — IBK투자증권",
+      "Git · SVN",
     ],
   },
 ];

@@ -13,9 +13,9 @@ import { bakeryPickup } from "./data/bakery-pickup";
 
 /** 금융권 실무 프로젝트 */
 export const projects = [
-  nhLife,
-  jejuBank,
   hanaSecurities,
+  jejuBank,
+  nhLife,
   dongyangLife,
   ablLife,
   koreaInvestment,
@@ -31,7 +31,7 @@ export const personalProjects = [payflow, smartRadar, bakeryPickup];
 export const allProjects = [...projects, ...personalProjects];
 
 /** 현재 시점의 대표 실무 프로젝트 (배열 순서와 무관하게 명시적으로 지정) */
-export const FEATURED_PROJECT_ID = "nh-life";
+export const FEATURED_PROJECT_ID = "hana-securities";
 
 export const featuredProject =
   projects.find((p) => p.id === FEATURED_PROJECT_ID) ?? projects[0];

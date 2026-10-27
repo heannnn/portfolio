@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X, Home } from "lucide-react";
-import ThemeToggle from "../ThemeToggle"; // ← 추가
+import { Home, Menu, X } from "lucide-react";
+import ThemeToggle from "../ThemeToggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const links = [
     { href: "/", label: "Home" },
@@ -15,12 +17,18 @@ export default function Navbar() {
     { href: "/contact", label: "Contact" },
   ];
 
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
-    <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-line">
+    <nav className="fixed top-0 w-full bg-base/85 backdrop-blur-sm z-50 border-b border-line">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-fg">
+          <Link
+            href="/"
+            aria-label="홈으로"
+            className="p-2 -ml-2 rounded-lg text-fg hover:bg-sunken transition-colors"
+          >
             <Home size={22} />
           </Link>
 
@@ -29,7 +37,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="transition-colors text-fg-muted hover:text-blue-500 dark:hover:text-blue-400"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`transition-colors hover:text-accent ${
+                  isActive(link.href) ? "text-fg font-medium" : "text-fg-muted"
+                }`}
               >
                 {link.label}
               </Link>
@@ -43,6 +54,8 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-fg"
+              aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X /> : <Menu />}
             </button>
@@ -56,7 +69,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-2 text-fg-muted hover:text-blue-500 dark:hover:text-blue-400"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`block py-2 hover:text-accent ${
+                  isActive(link.href) ? "text-fg font-medium" : "text-fg-muted"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

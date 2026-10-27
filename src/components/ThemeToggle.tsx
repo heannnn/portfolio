@@ -9,11 +9,11 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-      aria-label="Toggle theme"
+      className="p-2 rounded-lg text-fg-muted hover:text-fg hover:bg-sunken transition-colors"
+      aria-label="다크 모드 전환"
     >
-      <Sun size={20} className="text-yellow-500 hidden dark:block" />
-      <Moon size={20} className="text-gray-700 dark:hidden" />
+      <Sun size={20} className="hidden dark:block" />
+      <Moon size={20} className="dark:hidden" />
     </button>
   );
 }

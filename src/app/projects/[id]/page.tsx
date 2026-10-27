@@ -1,7 +1,9 @@
 import { allProjects } from "@/lib/projects";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
+import { PROJECT_DIAGRAMS } from "@/components/diagrams";
 
 export default async function ProjectDetail({
   params,
@@ -12,9 +14,11 @@ export default async function ProjectDetail({
   const project = allProjects.find((p) => p.id === id);
   if (!project) notFound();
 
+  const diagram = PROJECT_DIAGRAMS[project.id];
+
   return (
     <div className="py-20 px-4">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <Link
           href="/projects"
           className="inline-flex items-center gap-2 text-fg-muted hover:text-fg mb-10 transition"
@@ -27,16 +31,12 @@ export default async function ProjectDetail({
         <div className="p-8 md:p-10 rounded-2xl bg-surface border border-line">
           {/* 헤더 */}
           <div className="mb-8 pb-8 border-b border-line">
-            <h1 className="text-3xl md:text-4xl font-bold text-fg mb-4">
+            <h1 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-fg mb-4">
               {project.title}
             </h1>
-            <div className="flex flex-wrap gap-3">
-              <span className="px-3 py-1 bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 rounded-full text-sm">
-                {project.period}
-              </span>
-              <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-fg-muted rounded-full text-sm">
-                {project.role}
-              </span>
+            <div className="flex flex-wrap gap-x-5 gap-y-1">
+              <span className="text-fg tabular">{project.period}</span>
+              <span className="text-fg-muted">{project.role}</span>
             </div>
 
             {(project.github || project.demo) && (
@@ -46,7 +46,7 @@ export default async function ProjectDetail({
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-line rounded-lg text-sm text-fg-body hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-line rounded-lg text-sm text-fg-body hover:border-accent transition-colors"
                   >
                     <Github size={16} />
                     GitHub
@@ -57,7 +57,7 @@ export default async function ProjectDetail({
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-line rounded-lg text-sm text-fg-body hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-line rounded-lg text-sm text-fg-body hover:border-accent transition-colors"
                   >
                     <ExternalLink size={16} />
                     Demo
@@ -67,12 +67,58 @@ export default async function ProjectDetail({
             )}
           </div>
 
+          {/* 구조도 */}
+          {diagram && (
+            <figure className="mb-8 pb-8 border-b border-line">
+              <diagram.Component />
+              <figcaption className="mt-4 text-sm text-fg-muted leading-relaxed">
+                {diagram.caption}
+              </figcaption>
+            </figure>
+          )}
+
+          {/* 실제 화면 */}
+          {project.images && project.images.length > 0 && (
+            <div className="mb-8 pb-8 border-b border-line">
+              <h2 className="text-base font-semibold text-fg-muted mb-4">
+                화면
+              </h2>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {project.images.map((image, i) => (
+                  <figure
+                    key={image.src}
+                    className={i === 0 ? "sm:col-span-3" : undefined}
+                  >
+                    <a
+                      href={image.src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.width}
+                        height={image.height}
+                        className="w-full h-auto rounded-lg border border-line"
+                      />
+                    </a>
+                    {image.caption && (
+                      <figcaption className="mt-2 text-sm text-fg-muted">
+                        {image.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* 프로젝트 개요 */}
           <div className="mb-8 pb-8 border-b border-line">
-            <h2 className="text-base font-semibold text-fg-muted uppercase tracking-wide mb-4">
+            <h2 className="text-base font-semibold text-fg-muted mb-4">
               프로젝트 개요
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-3 max-w-[44rem]">
               {project.description
                 .split("\n")
                 .filter(Boolean)
@@ -87,13 +133,13 @@ export default async function ProjectDetail({
           {/* 주요 성과 */}
           {project.impact && project.impact.length > 0 && (
             <div className="mb-8 pb-8 border-b border-line">
-              <h2 className="text-base font-semibold text-fg-muted uppercase tracking-wide mb-4">
+              <h2 className="text-base font-semibold text-fg-muted mb-4">
                 주요 성과
               </h2>
-              <ul className="space-y-3">
+              <ul className="space-y-3 max-w-[44rem]">
                 {project.impact.map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-fg-body">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -103,14 +149,14 @@ export default async function ProjectDetail({
 
           {/* 기술 스택 */}
           <div>
-            <h2 className="text-base font-semibold text-fg-muted uppercase tracking-wide mb-4">
+            <h2 className="text-base font-semibold text-fg-muted mb-4">
               기술 스택
             </h2>
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm text-fg-body"
+                  className="px-2.5 py-0.5 bg-sunken rounded text-sm text-fg-body"
                 >
                   {tag}
                 </span>

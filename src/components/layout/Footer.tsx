@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="flex gap-4">
             <a
               href={CONTACT.emailUrl}
-              className="text-fg-muted hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+              className="text-fg-muted hover:text-accent transition-colors"
               aria-label="Email"
             >
               <Mail size={20} />
@@ -20,7 +20,7 @@ export default function Footer() {
               href={CONTACT.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-fg-muted hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+              className="text-fg-muted hover:text-accent transition-colors"
               aria-label="GitHub"
             >
               <Github size={20} />
@@ -29,7 +29,7 @@ export default function Footer() {
               href={CONTACT.portfolioRepo}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-fg-muted hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+              className="text-fg-muted hover:text-accent transition-colors"
               aria-label="Portfolio Source"
             >
               <Code2 size={20} />

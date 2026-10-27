@@ -33,4 +33,14 @@ export interface Project {
   cardSummary?: string;
   /** 목록 카드에서 노출할 핵심 태그(최대 4개). 생략 시 tags 앞 4개를 사용. */
   cardTags?: string[];
+  /** 상세 페이지에 노출할 실제 화면. 본인이 공개 가능한 자료(개인 프로젝트 등)만 넣는다. */
+  images?: ProjectImage[];
+}
+
+export interface ProjectImage {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
 }

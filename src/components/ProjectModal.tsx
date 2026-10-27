@@ -39,7 +39,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="sticky top-0 bg-surface border-b border-line p-6 flex justify-between items-start">
             <div className="flex-1 pr-4">
               <div className="flex items-center gap-3 mb-2">
-                <h2 className="text-2xl font-bold text-fg">{project.title}</h2>
+                <h2 className="text-2xl font-semibold text-fg">{project.title}</h2>
                 {project.badge && (
                   <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs rounded-full font-medium">
                     {project.badge}

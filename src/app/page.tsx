@@ -49,8 +49,8 @@ export default function Home() {
             <ApplyFlowDemo />
             <figcaption className="mt-4 text-sm text-fg-muted leading-relaxed">
               실무에서 만든 태블릿 대출 신청 흐름을 줄인 예시입니다. 검증을
-              통과해야 다음 단계로 넘어가고, 공동명의를 고르면 단계가 하나
-              추가됩니다.
+              통과해야 다음 단계로 넘어가고, 공동명의를 고르면 공동명의자
+              화면이 추가됩니다.
             </figcaption>
           </figure>
         </div>
@@ -61,7 +61,7 @@ export default function Home() {
           {[
             {
               title: "단계형 화면과 상태 관리",
-              desc: "조건에 따라 단계가 붙고 빠지는 신청 흐름을 React로 구현했습니다. Recoil로 단계 간 입력 상태를 유지해 앞뒤로 이동해도 값이 남도록 했습니다.",
+              desc: "조건에 따라 단계가 붙고 빠지는 신청 흐름을 React로 구현했습니다. Context·Recoil로 단계 간 입력 상태를 유지해 앞뒤로 이동해도 값이 남도록 했습니다.",
               basis: "하나증권 · 제주은행",
             },
             {

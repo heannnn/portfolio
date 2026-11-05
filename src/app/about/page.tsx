@@ -57,7 +57,7 @@ export default function About() {
                 title: "제주은행 태블릿 집단대출 신청",
                 role: "프론트엔드 개발 (인수인계 후 이동)",
                 description:
-                  "단계형 신청 흐름, 공동명의자 분기, Recoil 단계 상태 관리, Zod 검증, Native 임시저장 연동",
+                  "단계형 신청 흐름, 공동명의자 분기, Context·Recoil 상태 관리, Zod 검증, Native 임시저장 연동",
               },
               {
                 year: "2025",

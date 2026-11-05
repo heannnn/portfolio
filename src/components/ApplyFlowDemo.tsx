@@ -33,7 +33,7 @@ const initialState: FormState = {
   amount: "",
 };
 
-// 공동명의를 선택하면 단계가 하나 추가됨
+// 공동명의를 선택하면 공동명의자 화면이 추가됨 (실제 인증·동의·정보입력 sub 화면을 하나로 축약)
 function getSteps(state: FormState): StepId[] {
   return state.ownership === "joint"
     ? ["verify", "ownership", "coOwner", "amount", "confirm"]
@@ -182,7 +182,7 @@ export default function ApplyFlowDemo() {
                   {label}
                   {value === "joint" && (
                     <span className="ml-auto text-xs text-fg-muted">
-                      단계 1개 추가
+                      화면 추가
                     </span>
                   )}
                 </label>

@@ -12,7 +12,7 @@ export const TECH_STACKS: TechCategory[] = [
     titleClass: "text-fg",
     items: [
       "React · Recoil · React Router — 하나증권, 제주은행",
-      "Zod — 제주은행",
+      "Context API · TanStack Query · Zod — 제주은행",
       "Ant Design · webpack — 하나증권",
       "JavaScript · exBuilder6 — NH농협생명, 우체국",
       "JSP (세션 처리, 로그인 화면) — NH농협생명",
